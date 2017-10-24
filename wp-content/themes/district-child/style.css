@@ -1,0 +1,410 @@
+/*
+ Theme Name:   District Child
+ Theme URI:    http://vacationlabs.com/district-child/
+ Description:  District Child Theme
+ Author:       Saurabh Nanda
+ Author URI:   http://www.vacationlabs.com
+ Template:     district
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  district-child
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,700);
+
+body {
+  font-size: 15px;
+  line-height: 2em;
+}
+
+h1, h1 a, h2, h2 a, h3, h3 a, h4, h4 a, h5, h5 a, h6, h6 a, .widget h1 a, .widget h2 a, .widget h3 a, .widget h4 a, .widget h5 a, .widget h6 a, .tabswrap .tabpost a, .more-posts a, ul li a.rsswidget {
+  color: #555;
+}
+
+.section, .section p, ul li {
+  font-size: 15px;
+  line-height: 2em;
+  color: #777;
+}
+
+ul li {
+  margin-left: 35px;
+  /*/margin-bottom: 20px;*/
+}
+
+.section h2, .section h3 {
+  color: #555;
+  line-height: 1.5em;
+}
+
+.button, a.button, a.more-link, #submit {
+  font-weight: 400 !important;
+}
+
+.section .button, .section a.button, .section a.more-link {
+  font-size: 18px;
+}
+
+/*.pagetitle { 
+padding: 10px 0 !important;
+padding-top: 10px;}
+
+*/
+
+.container .eleven.columns{
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 671px;
+}
+
+.pagetitle a.button { 
+  font-size: 18px !important;
+}
+
+
+ul.sub-menu {
+  width: 200px;
+}
+
+ul#menu-top-menu li a {
+  font-size: 12px;
+}
+
+ul#menu-top-menu > li {
+  margin-left: 5px;
+}
+
+
+ul#menu-top-menu li#menu-item-2922 a{
+  /* We are hiring */
+  background-color: #FDE3A7;
+  padding: 4px 8px;
+  margin-top: 20px;
+  margin-right: 8px;
+}
+
+
+ul#menu-top-menu li#menu-item-2278 a{
+  /* Request a demo */
+  background-color: #cb3535;
+  padding: 4px 8px;
+  margin-top: 20px;
+  color: #fff;
+}
+
+.post .content ul > li {
+   margin-left: 45px;
+   margin-bottom: 5px;
+}
+
+.tech-stack-logos img {
+  display: inline-block;
+  margin: 0px 15px;
+}
+
+/*.section-2992, .section-3007, .section-3001, .section-3003, .section-3005, .section-2998, .section-2996, .section-3014, .section-3209, .section-3270, .section-3288, .section-1798, .section-2039, .section-1453, .section-2046, .section-2109{
+  padding-top:0px;
+}
+*/
+/*.section-1798 { height: 93px;}
+.section-3288{
+  height:80px;
+}
+*/
+/*.section a.button { border-radius: 4px;}*/
+
+/*#footer {background-color: #6d6e71;}*/
+
+.testimonial-container { margin: 1px; padding: 1px;}
+
+
+.avatar-info .comment-counter,
+  .categories a:hover, .tagcloud a, .widget .tagcloud a, .single .categories a, .single .sidebar .categories a:hover, 
+  .tabswrap ul.tabs li a.active, .tabswrap ul.tabs li a:hover, #footer .tabswrap ul.tabs li a:hover, #footer .tabswrap ul.tabs li a.active, 
+  .pagination a.button.share:hover, #commentsubmit #submit, #cancel-comment-reply-link, ul.filter li a.active, .categories a, .widget .categories a,
+  ul.filter li a:hover, .button, a.button, .widget a.button, a.more-link, .widget a.more-link, #footer .button, #footer a.button, #footer a.more-link, .cancel-reply p a,
+  #footer .button:hover, #footer a.button:hover, #footer a.more-link:hover, .ag-pricing-table .featured .ag-pricing-header  { 
+    background-color: #98c2dc; }
+
+p a, a, blockquote, blockquote p, .pagetitle h2, .tabswrap .tabpost a:hover, .articleinner h2 a:hover, span.date a:hover, .highlight, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, .post h2.title a:hover, #wp-calendar tbody td a,
+  .author p a:hover, .date p a:hover, .widget a:hover, .widget.ag_twitter_widget span a, #footer h1 a:hover, #footer h2 a:hover, #footer h3 a:hover, #footer h3 a:hover, #footer h4 a:hover, #footer h5 a:hover, a:hover, #footer a:hover, .blogpost h2 a:hover, .blogpost .smalldetails a:hover {
+     color: #98c2dc;
+  }
+
+.recent-project:hover,
+  #footer .recent-project:hover {
+    border-color: #98c2dc;
+  }
+
+.avatar-info .comment-counter,
+  .categories a:hover, .tagcloud a, .widget .tagcloud a, .single .categories a, .single .sidebar .categories a:hover, 
+  .tabswrap ul.tabs li a.active, .tabswrap ul.tabs li a:hover, #footer .tabswrap ul.tabs li a:hover, #footer .tabswrap ul.tabs li a.active, 
+  .pagination a.button.share:hover, #commentsubmit #submit, #cancel-comment-reply-link, ul.filter li a.active, .categories a, .widget .categories a,
+  ul.filter li a:hover, .button, a.button, .widget a.button, a.more-link, .widget a.more-link, #footer .button, #footer a.button, #footer a.more-link, .cancel-reply p a,
+  #footer .button:hover, #footer a.button:hover, #footer a.more-link:hover, .ag-pricing-table .featured .ag-pricing-header  { 
+    background-color: #98c2dc; }
+
+.pagetitle h2, .tabswrap .tabpost a:hover, .articleinner h2 a:hover, span.date a:hover, .highlight, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, .post h2.title a:hover, #wp-calendar tbody td a,
+  .author p a:hover, .date p a:hover, .widget a:hover, .widget.ag_twitter_widget span a, #footer h1 a:hover, #footer h2 a:hover, #footer h3 a:hover, #footer h3 a:hover, #footer h4 a:hover, #footer h5 a:hover, a:hover, #footer a:hover, .blogpost h2 a:hover, .blogpost .smalldetails a:hover {
+     color: #98c2dc;
+  }
+.recent-project:hover,
+  #footer .recent-project:hover {
+    border-color: #98c2dc;
+  }
+
+
+.shadow { box shadow: inset 0px 0px 20px 0px rgba(0,0,0,1);}
+
+.container.blog-sidebar {width: 965px;}
+.container {width: 965px;}
+
+.sixteen.columns{margin-left: 0px;}
+
+.label {
+  display: inline-block;
+  padding: 4px 8px;
+  margin-left: 8px;
+  font-size: 90%;
+}
+.label-pricing-plan-duration {
+  background-color: rgb(116, 199, 120);
+  color: #fff;
+}
+
+#pricing-table h5 {
+  text-transform: none !important;
+  letter-spacing: 0px !important;
+}
+
+#pricing-table .subscription-plan-description {
+  font-size: 11px;
+  color: #ccc;
+  margin: 16px;
+  line-height: 1.6em;
+}
+.ag-pricing-content li  {
+  font-size: 11px;
+  color: #999;
+}
+.ag-pricing-content li strong {
+  color: #555;
+  font-weight: 600;
+}
+
+#pricing-table .ag-pricing-table .ag-pricing-header {
+  background: rgb(82, 102, 112);
+}
+.ag-pricing-button a.button {
+  border-radius: 2px;
+  background: rgb(213, 84, 0);
+}
+.pricing-free-plan-unit {
+  border: 1px solid rgb(236, 236, 236);
+  padding: 20px 20px;
+}
+.pricing-free-plan-unit  h3 {
+  font-size: 32px;
+  color: #777;
+  letter-spacing: 0px !important;
+  text-align: left;
+}
+.pricing-free-plan-unit .ag-pricing-button {
+  float: right;
+  /*margin-top: 40px;*/
+}
+.pricing-free-plan-unit p {
+  width: 75%;
+  font-size: 12px;
+  text-align: left !important;
+}
+
+.new-tab-styling ul.tabs {
+  display: inline-block;
+  margin: 30px auto 50px 0;
+}
+
+.new-tab-styling ul.tabs li > a {
+  height: 30px;
+  font-weight: 600;
+  color: #777;
+  padding: 5px 25px;
+}
+
+.new-tab-styling ul.tabs li > a:hover {
+  background-color: rgba(116, 199, 120, 0.3);  
+}
+
+.new-tab-styling ul.tabs li > a.active {
+  top: auto;
+  padding-top: 5px;
+  margin: 0;
+  border-bottom: 1px solid #dcdcdc;
+  background-color: rgb(116, 199, 120);
+  color: #fff;
+}
+
+.feature-list {
+  text-align: center;
+}
+
+.feature-list .feature {
+  text-align: left;
+  margin-bottom: 14px;
+}
+
+.feature-list .feature h5 {
+  text-align: left;
+  color: rgb(67, 97, 162);
+  text-transform: none !important;
+  font-size: 16px;
+  letter-spacing: 0px !important;
+  font-weight: 500 !important;
+  margin-bottom: 8px;
+}
+
+.feature-list .feature .checkmark {
+  color: rgb(125,205,36);
+  font-size: 18px;
+}
+
+
+.feature-list .feature.inactive h5 {
+  color: #999;
+}
+
+.feature-list .feature.inactive .checkmark {
+  color: #999;
+}
+
+
+.feature-list .feature p {
+  text-align: left;
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+#all-features-container a.close {
+  display: inline-block;
+  clear: both;
+  margin: 30px auto 0 auto;
+  font-size: 30px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: none !important;
+  letter-spacing: 0px !important;
+}
+
+.ag-toggle .ag-toggle-trigger {
+  font-weight: normal !important;
+  text-align: left !important;
+}
+
+.ag-toggle .ag-toggle-container {
+  font-size: 12px;
+  line-height: 1.6em;
+  text-align: left !important;
+}
+
+#footer-social-linkoffs {
+  background-color: #2C3E50;
+  color: #FFF;
+  padding: 10px 0px;
+}
+
+#footer-social-linkoffs h4 {
+  margin-bottom: 0px;
+}
+
+#footer-social-linkoffs .one_half {
+  margin-bottom: 0px;
+}
+
+#footer-social-linkoffs  * {
+  color: #fff;
+}
+
+#footer-social-linkoffs h4 {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.section h2 {
+  font-size: 28px;
+  border-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.section.with-bottom-border {
+  border-bottom: 1px solid #ddd;
+}
+
+
+.section.custom {
+  padding-bottom: 25px;
+}
+
+/* STYLES FOR WE ARE HIRING PAGE */
+
+.job-box {
+  background-color: #fff;
+  padding: 40px 25px;
+  text-align: center;
+
+}
+
+.job-box .job-blurb {
+  margin-bottom: 20px;
+}
+
+.job-box a.button {
+  margin-bottom: 0px;
+}
+
+.section.jobs-header  {
+  height: 250px;
+  background-position: right center;
+}
+
+.section.jobs-header  h1 {
+  color: #fff;
+  margin-top: 80px;
+  text-align: center;
+}
+
+
+.job-list-section {
+  padding-top: 60px !important;
+  padding-bottom: 40px !important;
+}
+
+
+/*
+ * STYLES for page template (full width with big header image)
+ */
+
+.pagetitle.big-header-image {
+  height: 250px;
+  text-align: center;
+}
+
+.pagetitle.big-header-image h1 {
+  margin-top: 105px;
+  display: inline-block;
+  padding: 15px;
+}
+
+
+.vl-in-focus {
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.6em;
+  margin: 30px 0 40px 0;
+}
+
+.vl-in-focus br {
+  line-height: 60px !important;
+}
