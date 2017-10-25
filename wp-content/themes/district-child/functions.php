@@ -12,6 +12,7 @@ function theme_enqueue_styles() {
         get_stylesheet_directory_uri() . '/style.css',
         array( $parent_style )
     );
+    wp_enqueue_style( 'theme-page', get_stylesheet_directory_uri() . '/hackathon/css/themes-page.css',false,'1.1','all');
 }
 
 function district_child_footer_social_linkoffs() {
@@ -22,7 +23,7 @@ function add_border_bottom_meta_to_section() {
   global $metaboxes;
   global $prefix;
   // $fields = $metaboxes['section_layout_box']['fields'];
-  // array_splice($fields, count($fields)-2, 0, 
+  // array_splice($fields, count($fields)-2, 0,
   $metaboxes['section_layout_box']['fields'][$prefix . 'bottom_border'] = array(
     'title' => __('Section Bottom Border', 'framework'),
     'type' => 'radio',
@@ -36,7 +37,7 @@ function add_custom_css_classes_meta_to_section() {
   global $metaboxes;
   global $prefix;
   // $fields = $metaboxes['section_layout_box']['fields'];
-  // array_splice($fields, count($fields)-2, 0, 
+  // array_splice($fields, count($fields)-2, 0,
   $metaboxes['section_layout_box']['fields'][$prefix . 'custom_css_classes'] = array(
     'title' => __('Custom CSS Class(es)', 'framework'),
     'type' => 'text',
@@ -148,7 +149,7 @@ function website_themes() {
     'show_in_admin_bar'     => true,
     'show_in_nav_menus'     => true,
     'can_export'            => true,
-    'has_archive'           => true,    
+    'has_archive'           => true,
     'exclude_from_search'   => false,
     'publicly_queryable'    => true,
     'capability_type'       => 'post',

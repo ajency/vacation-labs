@@ -1,0 +1,132 @@
+
+.theme-card{
+	.imgwrapper{
+		position: relative;
+		padding-bottom: 20px;
+
+		.full-hover-border-effect{
+			padding-bottom: 20px;
+		}
+	}
+	@media only screen and (min-width: 768px){
+	    .imgwrapper:hover .full-hover-border-effect{
+	        line-height: 70px;
+	        text-align: center;
+	        border-color: #777;
+	        border-radius: 6px;
+	        box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+	        transition: all 200ms ease-out;
+	    }
+	    .imgwrapper:hover .overlay {
+	      width: 100%;
+	      left: 0;
+	    }
+	}
+	.img-a{
+		position: relative;
+		padding-top: 15px;
+		padding-bottom: 0px;
+		margin-bottom: 15px;
+	}
+
+	.img-responsive{
+		max-width: 100%;
+		height: auto;
+		width: 100%;
+		padding-left: 10px;
+	}
+
+	.overlay{
+		position: absolute;
+	    bottom: 0;
+	    left: 100%;
+	    right: 0;
+	    background-color: rgba(35,52,63,0.9);
+	    overflow: hidden;
+	    width: 0;
+	    height: 100%;
+	    border-radius: 6px;
+	    border-bottom-right-radius: 0px;
+	    border-bottom-left-radius: 0;
+	    z-index: 2;
+	}
+
+	.text {
+	    white-space: nowrap;
+	    color: white;
+	    font-size: 20px;
+	    position: absolute;
+	    overflow: hidden;
+	    top: 36%;
+	    opacity: 1;
+	    left: 38%;
+
+	    .button {
+	    	border-radius: 30px;
+    	    color: #fff;
+    	    text-decoration: none !important;
+    	    width: 140px;
+    	    background: #006eaa;
+	    	margin-top: 15px;
+	    	padding: 15px;
+	    	font-size: 18px;
+	    	-webkit-box-sizing: border-box;
+	    	-moz-box-sizing: border-box;
+	    	box-sizing: border-box;
+	    	&.transparent{
+	    		background: none;
+	    		border: 2px solid #fff;
+	    	}
+	    }
+	}
+
+	.theme_name{
+		font-size: 16px !important;
+		color: #2993b5;
+		font-weight: 600;
+		display: flex;
+		margin-left: 4%;
+		text-align: center;
+		line-height: 1.5em;
+		margin-bottom: 5px !important;
+	}
+
+	.author{
+		color: #555;
+		line-height: 1.5em;
+		font-size: 13px;
+		text-align: left;
+		font-weight: 600;
+		margin-left: 4%;
+		margin-bottom: 5px !important;
+	}
+
+	p{
+		font-size: 15px !important;
+	    font-family: Lato;
+	    font-weight: 400;
+	    margin-top: 5px;
+	    font-style: italic;
+	    color: #999999;
+	    margin-left: 4%;
+	    text-align: left !important;
+	}
+
+	.badge{
+		display: inline-block;
+		min-width: 10px;
+		padding: 3px 5px;
+		margin-right: 5px;
+		margin-bottom: 5px;
+		font-size: 12px;
+		font-weight: 600;
+		line-height: 1;
+		color: #41403B;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		background-color: #E0E0E0;
+		border-radius: 15px;
+		font-style: normal;
+	}
+}
