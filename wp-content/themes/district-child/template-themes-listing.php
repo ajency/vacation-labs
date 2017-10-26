@@ -50,13 +50,4 @@ templateThemeListing($query);
 
 get_footer(); ?>
 
-<script type="text/javascript">
-	jQuery('body').on('click', '.filter-head a', function(e){
-		e.preventDefault();
-		jQuery('.filters-slide').removeClass('shown');
-	});
-	jQuery('body').on('click', '.toggle-filter', function(e){
-		e.preventDefault();
-		jQuery('.filters-slide').addClass('shown');
-	});
-</script>
+

@@ -10,9 +10,6 @@ function templateThemeListing($query){
             <div class="row visible-md visible-sm visible-lg" style="background-color: #fafafa;padding-top: 15px; box-shadow: 1px 1px 5px 0 rgba(171, 166, 166, 0.5);">
                 <div class="col-md-6 col-sm-6">
                 <ol class="breadcrumb">
-<!--                   <li class="breadcrumb-item"><a href="#">All Templates</a></li>
-                  <li class="breadcrumb-item"><a href="#">Accomodation</a></li>
-                  <li class="breadcrumb-item active">Bed &amp; Breakfast</li> -->
                   <?php
                      vacationLabBreadcrumbs();
                   ?>
@@ -220,5 +217,16 @@ function templateThemeListing($query){
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        jQuery('body').on('click', '.filter-head a', function(e){
+            e.preventDefault();
+            jQuery('.filters-slide').removeClass('shown');
+        });
+        jQuery('body').on('click', '.toggle-filter', function(e){
+            e.preventDefault();
+            jQuery('.filters-slide').addClass('shown');
+        });
+    </script>
 <?php
 }
