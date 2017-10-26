@@ -12,17 +12,7 @@ function templateThemeListing($query){
                   <li class="breadcrumb-item"><a href="#">Accomodation</a></li>
                   <li class="breadcrumb-item active">Bed &amp; Breakfast</li>
                 </ol>
-                <!--
-                    <span class="">
-                        <h2 style="padding-top: 0;padding-bottom: 10px;">
-                            <a href="#" class="breadcrumb-norml">All Templates</a>
-                                 >
-                            <a href="#" class="breadcrumb-mdl"> Accomodation</a>
-                                 >
-                            <span class="breadcrumb-curr">  Breakfast</span>
-                        </h2>
-                    </span>
-                -->
+
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <p style="padding-bottom: 10px; font-style: normal;margin: 0;float: right; padding-right: 10%; font-size: 15px;">
@@ -42,27 +32,23 @@ function templateThemeListing($query){
                 </div>
 
             </div>
-            <div class="row visible-xs" style="background-color: #f0f0f0; ">
-                <div class="col-sm-6 col-xs-6" style="border-right: 1px solid #777;padding:  15px 0 !important;">
+            <div class="row visible-xs mobile-top-bar" style="background-color: #f0f0f0; ">
+                <div class="col-sm-6 col-xs-6 toggle-filter" style="border-right: 1px solid #777;padding:  15px 0 !important;">
 
                     <a href="./filter.html" style="text-decoration: none !important;">
-                        <img src="./img/icon_filter.png" width="16px" aria-hidden="true" style="color: #fff;border:none;">
+                        <div class="filter-icon"></div>
                         <span style="font-size: 14px; color:rgb(119,119,119); font-weight: 500;">Filter</span>
-                        <span class="badge" style="font-size:10px; color:white; background-color:#1b6fb6; margin-top:2px;">5</span>
+                        <span class="badge">5</span>
                     </a>
-                    <!--
-                        <a class="button " target="_self" rel="nofollow" style="width:35px;height: 38px;  border-radius: 22px;padding-top: 10px;background-color: #1b6fb6;">
-                        <span class="ag-button-inner" style="font-size: 18px;margin-left: -7px !important;">1</span></a>
-                    -->
 
                 </div>
-                <!-- <div class="col-sm-2 col-xs-2"></div> -->
+
                 <div class="col-sm-6 col-xs-6" style="padding:  15px 0!important;cursor: pointer;" id="Pops-mob" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-style="mypops" data-original-title="" title="">
-                    <img src="./img/icon_sort.png" width="18px" aria-hidden="true" style="color: #fff;border:none;margin-right:">
+                    <div class="sort-icon"></div>
                     <span style="font-size: 14px;font-weight: 500;margin-right: ">Sort</span>
 
                 </div>
-                <div id="popover-content" class="hide">
+                <div id="popover-content" class="hide" style="display: none;">
                   <div>
                     <a href="#" class="sortby-dropdwn">Most Popular</a><br>
                     <a href="#" class="sortby-dropdwn">Most Recent</a><br>
@@ -76,72 +62,13 @@ function templateThemeListing($query){
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-3 col-sm-4 visible-sm visible-lg visible-md" style="padding-left: 6%;">
-                <!-- <span class="gw-menu-text" style="text-decoration: underline;">Navigation Menu</span>
 
-                         -->
 
                 <div class="sidenav-trvl-thms">
                     <ul>
                         <li class="top-head">THEME CATEGORIES
                         </li>
                         <?php echo hierarchical_category_tree( 0 ); ?>
-                      <!--  <li>
-                            <span class="head-ul">Accomodation</span>
-                            <ul>
-                                <li class="child active">
-                                    <a href="javascript:void(0)">Single Hotels</a>
-                                </li>
-
-                                <li class="child">
-                                    <a href="javascript:void(0)">Multiple Hotels</a>
-                                </li>
-
-                                <li class="child">
-                                    <a href="javascript:void(0)">Bed and Breakfast</a>
-                                </li>
-
-                                <li class="child">
-                                    <a href="javascript:void(0)">Single Hotels</a>
-                                </li>
-
-                                <li class="child">
-                                    <a href="javascript:void(0)">Multiple Hotels</a>
-                                </li>
-
-                                <li class="child">
-                                    <a href="javascript:void(0)">Bed and Breakfast</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <span class="head-ul">Tour &amp; Activities</span>
-                            <ul>
-                                <li class="child">
-                                    <a href="javascript:void(0)">Single Hotels</a>
-                                </li>
-
-                                <li class="child">
-                                    <a href="javascript:void(0)">Multiple Hotels</a>
-                                </li>
-
-                                <li class="child">
-                                    <a href="javascript:void(0)">Bed and Breakfast</a>
-                                </li>
-
-                                <li class="child">
-                                    <a href="javascript:void(0)">Single Hotels</a>
-                                </li>
-
-                                <li class="child">
-                                    <a href="javascript:void(0)">Multiple Hotels</a>
-                                </li>
-
-                                <li class="child">
-                                    <a href="javascript:void(0)">Bed and Breakfast</a>
-                                </li>
-                            </ul>
-                        </li>  -->
                     </ul>
                 </div>
             </div>
@@ -149,15 +76,6 @@ function templateThemeListing($query){
             <div class="col-md-9 col-xs-12 col-sm-8 main-cntent" style="padding-right: 6%;">
                 <div class="row" style="margin-top:30px;">
                     <div class="col-sm-12 col-xs-12 visible-xs">
-                        <!-- <span class="">
-                                <h2 style="padding-top: 0;padding-bottom: 10px;">
-                                    <a href="#" class="breadcrumb-norml">All Templates</a>
-                                         >
-                                    <a href="#" class="breadcrumb-mdl"> Accomodation</a>
-                                         >
-                                    <span class="breadcrumb-curr">  Breakfast</span>
-                                </h2>
-                            </span> -->
 
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
@@ -191,8 +109,8 @@ function templateThemeListing($query){
                         <div class="imgwrapper">
                             <div class="full-hover-border-effect">
                                 <div class="img-a">
-                                    <a><!-- <img class="prem-img" src="./img/premium_badge.png" width="100"> -->
-                                     <img class="img-responsive image actl-img" src="<?php echo $featured_img;?>"></a>
+                                    <!-- <img class="prem-img" src="./img/premium_badge.png" width="100"> -->
+                                     <img class="img-responsive image actl-img" src="<?php echo $featured_img;?>">
                                     <div class="overlay">
                                         <div class="text">
                                             <a class="button" href="./preview.html" rel="nofollow" target="_self"><span class="ag-button-inner">Preview</span></a><br>
@@ -262,6 +180,33 @@ function templateThemeListing($query){
                 ?>
             </div>
           </div>
+        </div>
+
+    </div>
+
+    <div class="bootstrap-content filters-slide">
+        <div class="">
+            <div class="filter-head">
+                <div class="container-fluid mob-filter-headr">
+                    <div style="padding: 0.8em 0;">
+                        <div class="row filter-text">
+                            <div class="col-sm-4 col-xs-4" style="text-align: left;"></div>
+                            <div class="col-sm-4 col-xs-4" style="text-align: center; font-weight: bold;">Filters</div>
+                            <div class="col-sm-4 col-xs-4" style="text-align: right;"><a href="#">Close</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-body">
+                <div class="sidenav-trvl-thms">
+                    <ul>
+                        <li class="top-head">THEME CATEGORIES
+                        </li>
+                        <?php echo hierarchical_category_tree( 0 ); ?>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 <?php
