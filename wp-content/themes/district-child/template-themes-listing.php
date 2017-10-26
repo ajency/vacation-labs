@@ -27,7 +27,7 @@ if ($_REQUEST['order_by'] == 'title') {
         'post_type'      => 'website_theme',
         'posts_per_page' => 4,
         'orderby'        => 'meta_value_num',
-        'meta_key'       => 'popularity',
+        'meta_key'       => '_popularity',
     );
 }
 

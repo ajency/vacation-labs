@@ -248,9 +248,10 @@ function website_theme_build_meta_box(){
 function save_website_theme_build_meta_box( $post_id){
   if(isset($_REQUEST['post_type'])){
     if($_REQUEST['post_type']=='website_theme'){
-      if(isset($_REQUEST['_popularity'])){
-        update_post_meta( $post_id, '_popularity',$_REQUEST['_popularity']);
-      }  
+
+       $_popularity = ($_REQUEST['_popularity']!='')? $_REQUEST['_popularity'] : 0 ;
+        update_post_meta( $post_id, '_popularity', $_popularity);
+        
 
       if(isset($_REQUEST['_theme_by'])){
         update_post_meta( $post_id, '_theme_by',$_REQUEST['_theme_by']);
