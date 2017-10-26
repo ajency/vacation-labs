@@ -5,14 +5,36 @@ Template Name: Themes Listing
  */
 get_header();
 
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$query               = new WP_Query(array(
-  'post_type' => 'website_theme',
-   'posts_per_page' => 1,
-   'meta_query' => false,
-   'paged' => $paged,
+//sorting  code start
 
- ));
+if ($_REQUEST['order_by'] == 'title') {
+    $args = array(
+        'post_type'      => 'website_theme',
+        'posts_per_page' => 4,
+        'paged'          => $paged,
+        'orderby'        => 'title',
+        'order'          => 'ASC',
+    );
+} else if ($_REQUEST['order_by'] == 'recent') {
+    $args = array(
+        'post_type'      => 'website_theme',
+        'posts_per_page' => 4,
+        'paged'          => $paged,
+    );
+} else {
+    //based on popularity
+    $args = array(
+        'post_type'      => 'website_theme',
+        'posts_per_page' => 4,
+        'orderby'        => 'meta_value_num',
+        'meta_key'       => 'popularity',
+    );
+}
+
+//sorting code end
+
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+$query = new WP_Query($args);
 ?>
 
 <?php
@@ -25,4 +47,4 @@ templateThemeListing($query);
 
 /* Get Footer
 ================================================== */
-get_footer(); ?>
+get_footer();?>

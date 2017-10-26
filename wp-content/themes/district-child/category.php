@@ -7,7 +7,7 @@ $term = get_queried_object();
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $query               = new WP_Query(array(
   'post_type' => 'website_theme',
-   'posts_per_page' => 1,
+   'posts_per_page' => 4,
    'paged' => $paged,
    'cat' =>$term->term_id
  ));
