@@ -933,6 +933,11 @@
   margin: 0;
   padding: 0 0 0 10%;
 }
+@media only screen and (max-width: 768px) {
+  .bootstrap-content ol.breadcrumb {
+    padding-left: 4%;
+  }
+}
 .bootstrap-content .sidenav-trvl-thms {
   width: 88%;
   text-align: left;
@@ -1010,9 +1015,83 @@
     border-left: 0;
   }
 }
+.bootstrap-content .mobile-top-bar {
+  text-align: center;
+}
+.bootstrap-content .mobile-top-bar .filter-icon,
+.bootstrap-content .mobile-top-bar .sort-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-image: url(../images/icon_filter.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: text-bottom;
+}
+.bootstrap-content .mobile-top-bar .sort-icon {
+  background-image: url(../images/icon_sort.png);
+}
+.bootstrap-content .mobile-top-bar .badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border-radius: 15px;
+  font-style: normal;
+  font-size: 10px;
+  color: white;
+  background-color: #1b6fb6;
+  margin-top: 2px;
+}
+.bootstrap-content.filters-slide {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  transform: translateX(500px);
+  transition: all 0.5s ease-in;
+  z-index: 99999;
+  background-color: #fff;
+  display: none;
+}
+.bootstrap-content.filters-slide.shown {
+  transform: translateX(0px);
+}
+.bootstrap-content.filters-slide .filter-head {
+  background-color: #006DB1;
+  background: -webkit-gradient(linear, left top, right top, from(#006cc5), to(#00cab2));
+  background: -webkit-linear-gradient(left, #006cc5, #00cab2);
+}
+.bootstrap-content.filters-slide .filter-head .row {
+  margin-bottom: 0;
+}
+.bootstrap-content.filters-slide .filter-body {
+  padding: 20px;
+}
+.bootstrap-content.filters-slide .filter-text,
+.bootstrap-content.filters-slide .filter-text a {
+  color: #FFF;
+  font-size: 16px;
+  text-decoration: none;
+}
+@media (max-width: 767px) {
+  .bootstrap-content.filters-slide {
+    display: block !important;
+  }
+}
 .bootstrap-content.pagecontent {
   padding-top: 0;
   background-color: #fff;
+  z-index: 99999;
 }
 .theme-card .imgwrapper {
   position: relative;
