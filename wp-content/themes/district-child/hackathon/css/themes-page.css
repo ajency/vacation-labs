@@ -1088,6 +1088,90 @@
     display: block !important;
   }
 }
+.bootstrap-content .popover-content {
+  display: none;
+}
+.bootstrap-content .popover-holder {
+  position: relative;
+  overflow: visible;
+  cursor: pointer;
+}
+.bootstrap-content .popover-holder.active .popover-content {
+  display: block;
+  position: absolute;
+  top: 30px;
+  left: 10px;
+  background: #fff;
+  list-style-type: none;
+  z-index: 1;
+  max-width: 276px;
+  padding: 5px 0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: left;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+  white-space: normal;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  line-break: auto;
+}
+.bootstrap-content .popover-holder.active .popover-content li {
+  list-style-type: none;
+  margin: 0;
+  line-height: 1.2em;
+}
+.bootstrap-content .popover-holder.active .popover-content li a {
+  padding: 5px 10px;
+  display: block;
+  color: #656565;
+  font-size: 14px;
+  font-weight: 600;
+}
+.bootstrap-content .popover-holder.active .popover-content li a span {
+  font-weight: normal;
+}
+.bootstrap-content .popover-holder.active .popover-content li a:hover {
+  color: #00a498;
+}
+.bootstrap-content .popover-holder.active > .arrow,
+.bootstrap-content .popover-holder.active > .arrow:after {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+.bootstrap-content .popover-holder.active > .arrow {
+  border-width: 11px;
+  top: 19px;
+  left: 50%;
+  margin-left: -32px;
+  border-top-width: 0;
+  border-bottom-color: #999;
+  border-bottom-color: rgba(132, 132, 132, 0.25);
+}
+.bootstrap-content .popover-holder.active > .arrow:after {
+  top: 1px;
+  margin-left: -10px;
+  content: " ";
+  border-top-width: 0;
+  border-bottom-color: #fff;
+}
 .bootstrap-content.pagecontent {
   padding-top: 0;
   background-color: #fff;

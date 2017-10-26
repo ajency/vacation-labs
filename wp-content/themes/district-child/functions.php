@@ -176,7 +176,7 @@ function hierarchical_category_tree( $cat ) {
         if($cat->parent==0)
           echo '<li><span class="head-ul"><a href="' . get_category_link( $cat->term_id ) . '">' . $cat->name . '<a/></span>';
         else
-          echo '<ul><li class="child"><strong><a href="' . get_category_link( $cat->term_id ) . '">' . $cat->name . '</a></strong>';
+          echo '<ul><li class="child"><a href="' . get_category_link( $cat->term_id ) . '">' . $cat->name . '</a>';
         hierarchical_category_tree( $cat->term_id );
       endif;
     endforeach;
@@ -192,7 +192,7 @@ add_action( 'pre_get_posts', 'vacationlab_pre_get_posts' );
 function vacationlab_pre_get_posts( $query )
 {
     if ( ! $query->is_main_query() || $query->is_admin() )
-        return false; 
+        return false;
 
     if ( $query->is_category() ) {
         $query->set( 'post_type', 'website_theme' );
@@ -216,11 +216,11 @@ add_action( 'add_meta_boxes_website_theme', 'theme_addition_details_add_meta_box
  */
 function website_theme_build_meta_box(){
   $post_id = get_the_ID();
-  
+
     if (get_post_type($post_id) != 'website_theme') {
         return;
     }
-    
+
     $_popularity = get_post_meta($post_id, '_popularity', true);
     $_theme_by = get_post_meta($post_id, '_theme_by', true);
     $_theme_url = get_post_meta($post_id, '_theme_url', true);
@@ -250,15 +250,15 @@ function save_website_theme_build_meta_box( $post_id){
     if($_REQUEST['post_type']=='website_theme'){
       if(isset($_REQUEST['_popularity'])){
         update_post_meta( $post_id, '_popularity',$_REQUEST['_popularity']);
-      }  
+      }
 
       if(isset($_REQUEST['_theme_by'])){
         update_post_meta( $post_id, '_theme_by',$_REQUEST['_theme_by']);
-      }  
+      }
 
       if(isset($_REQUEST['_theme_url'])){
         update_post_meta( $post_id, '_theme_url',$_REQUEST['_theme_url']);
-      }  
+      }
       if(isset($_REQUEST['_premium'])){
             update_post_meta( $post_id, '_premium',$_REQUEST['_premium']);
       }
