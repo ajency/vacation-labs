@@ -2,15 +2,20 @@
 
 function templateThemeListing($query){
   $website_themes_data = $query->posts;
+
+
 ?>
     <div class="pagecontent bootstrap-content">
         <div class="container-fluid">
             <div class="row visible-md visible-sm visible-lg" style="background-color: #fafafa;padding-top: 15px; box-shadow: 1px 1px 5px 0 rgba(171, 166, 166, 0.5);">
                 <div class="col-md-6 col-sm-6">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">All Templates</a></li>
+<!--                   <li class="breadcrumb-item"><a href="#">All Templates</a></li>
                   <li class="breadcrumb-item"><a href="#">Accomodation</a></li>
-                  <li class="breadcrumb-item active">Bed &amp; Breakfast</li>
+                  <li class="breadcrumb-item active">Bed &amp; Breakfast</li> -->
+                  <?php
+                     vacationLabBreadcrumbs();
+                  ?>
                 </ol>
 
                 </div>
@@ -38,7 +43,7 @@ function templateThemeListing($query){
                     <a href="./filter.html" style="text-decoration: none !important;">
                         <div class="filter-icon"></div>
                         <span style="font-size: 14px; color:rgb(119,119,119); font-weight: 500;">Filter</span>
-                        <span class="badge">5</span>
+                        <!-- <span class="badge">5</span> -->
                     </a>
 
                 </div>
@@ -78,7 +83,10 @@ function templateThemeListing($query){
                     <div class="col-sm-12 col-xs-12 visible-xs">
 
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
+                             <?php
+                     vacationLabBreadcrumbs();
+                  ?>
+                            <!-- <li class="breadcrumb-item">
                                 <a href="#">All Templates</a>
                             </li>
 
@@ -87,7 +95,7 @@ function templateThemeListing($query){
                             </li>
 
                             <li class="breadcrumb-item active">Bed &amp; Breakfast
-                            </li>
+                            </li> -->
                         </ol>
                     </div>
 

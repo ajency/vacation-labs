@@ -174,7 +174,7 @@ function hierarchical_category_tree( $cat ) {
 
       if( $cat->slug!='uncategorized') :
         if($cat->parent==0)
-          echo '<li><span class="head-ul">' . $cat->name . '</span>';
+          echo '<li><span class="head-ul"><a href="' . get_category_link( $cat->term_id ) . '">' . $cat->name . '<a/></span>';
         else
           echo '<ul><li class="child"><strong><a href="' . get_category_link( $cat->term_id ) . '">' . $cat->name . '</a></strong>';
         hierarchical_category_tree( $cat->term_id );
@@ -203,3 +203,4 @@ function vacationlab_pre_get_posts( $query )
 
 
 include 'template-theme-listing-func.php';
+include 'breadcrumbs.php';
