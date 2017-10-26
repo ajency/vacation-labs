@@ -117,6 +117,9 @@ function templateThemeListing($query){
                         <div class="imgwrapper">
                             <div class="full-hover-border-effect">
                                 <div class="img-a">
+                                    <div class="ribbon">
+                                        <span>PREMIUM</span>
+                                    </div>
                                     <!-- <img class="prem-img" src="./img/premium_badge.png" width="100"> -->
                                      <img class="img-responsive image actl-img" src="<?php echo $featured_img;?>">
                                     <div class="overlay">
