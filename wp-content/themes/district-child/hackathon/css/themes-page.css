@@ -1076,6 +1076,11 @@
 }
 .bootstrap-content.filters-slide .filter-body {
   padding: 20px;
+  max-height: 90vh;
+  overflow: auto;
+}
+.bootstrap-content.filters-slide .filter-body .sidenav-trvl-thms {
+  float: none;
 }
 .bootstrap-content.filters-slide .filter-text,
 .bootstrap-content.filters-slide .filter-text a {
