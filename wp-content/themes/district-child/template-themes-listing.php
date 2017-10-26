@@ -13,8 +13,14 @@ foreach ( $terms as $term ) {
    echo $term->name.'<br />';
 }*/
 
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+$query               = new WP_Query(array(
+  'post_type' => 'website_theme',
+   'posts_per_page' => 1,
+   'meta_query' => false,
+   'paged' => $paged,
 
-$query               = new WP_Query(array('post_type' => 'website_theme', 'posts_per_page' => -1,'meta_query' => false));
+ ));
 $website_themes_data = $query->posts;
 ?>
 
@@ -189,12 +195,35 @@ echo get_template_part('functions/templates/sections'); ?>
           }
         ?>
 			    </div>
+          <?php
+          
+           if($query->have_posts()) :
+     
+              $total_pages = $query->max_num_pages;
+
+              if ($total_pages > 1){
+
+                  $current_page = max(1, get_query_var('paged'));
+
+                  echo paginate_links(array(
+                      'base' => get_pagenum_link(1) . '%_%',
+                      'format' => '/page/%#%',
+                      'current' => $current_page,
+                      'total' => $total_pages,
+                      'prev_text'    => __('« prev'),
+                      'next_text'    => __('next »'),
+                  ));
+              }
+            endif; 
+
+          ?>
 			</div>
 		</div>
 	</div>
 </div>
 
 <?php
+
 /* Get Footer
 ================================================== */
 get_footer(); ?>
