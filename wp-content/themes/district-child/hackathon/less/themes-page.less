@@ -1,3 +1,11 @@
-@import '_grid';
-@import '_sidebar';
+.bootstrap-content{
+	@import '_grid';
+	@import '_breadcrumb';
+	@import '_sidebar';
+
+	&.pagecontent{
+		padding-top: 0;
+		background-color: #fff;
+	}
+}
 @import '_singlecard';
