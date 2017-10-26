@@ -101,9 +101,10 @@ function templateThemeListing($query){
                   foreach ($website_themes_data as $website_themes_val) {
                     $post_id= $website_themes_val->ID;
                     $theme_name= $website_themes_val->post_title;
-                    $theme_by=get_post_meta($post_id,'theme_by',true);
-                    $theme_url=get_post_meta($post_id,'theme_url',true);
-                    $popularity=get_post_meta($post_id,'popularity',true);
+                    $theme_by=get_post_meta($post_id,'_theme_by',true);
+                    $theme_url=get_post_meta($post_id,'_theme_url',true);
+                    $popularity=get_post_meta($post_id,'_popularity',true);
+                    $premium=get_post_meta($post_id,'_premium',true);
                     $description=$website_themes_val->post_excerpt;
                     $featured_img= wp_get_attachment_url(get_post_thumbnail_id($post_id, '_thumbnail'));
 
@@ -113,9 +114,12 @@ function templateThemeListing($query){
                         <div class="imgwrapper">
                             <div class="full-hover-border-effect">
                                 <div class="img-a">
+                                    <?php if($premium==1){
+                                        ?>
                                     <div class="ribbon">
                                         <span>PREMIUM</span>
                                     </div>
+                                    <?php } ?>
                                     <!-- <img class="prem-img" src="./img/premium_badge.png" width="100"> -->
                                      <img class="img-responsive image actl-img" src="<?php echo $featured_img;?>">
                                     <div class="overlay">
