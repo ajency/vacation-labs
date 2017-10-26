@@ -162,7 +162,9 @@ add_action( 'init', 'website_themes', 0 );
 }
 
 
-
+/**
+ * added to get categories in hierarchical order
+ */
 function hierarchical_category_tree( $cat ) {
 
   $next = get_categories('hide_empty=false&orderby=name&order=ASC&parent=' . $cat);
@@ -182,5 +184,22 @@ function hierarchical_category_tree( $cat ) {
 
   echo '</li></ul>'; echo "\n";
 } 
+
+/**
+ * added to get pagination on category pages
+ */
+add_action( 'pre_get_posts', 'vacationlab_pre_get_posts' );
+function vacationlab_pre_get_posts( $query )
+{
+    if ( ! $query->is_main_query() || $query->is_admin() )
+        return false; 
+
+    if ( $query->is_category() ) {
+        $query->set( 'post_type', 'website_theme' );
+        $query->set( 'posts_per_page', 1 );
+    }
+    return $query;
+}
+
 
 include 'template-theme-listing-func.php';
