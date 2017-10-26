@@ -160,3 +160,26 @@ function website_themes() {
 add_action( 'init', 'website_themes', 0 );
 
 }
+
+
+
+function hierarchical_category_tree( $cat ) {
+
+  $next = get_categories('hide_empty=false&orderby=name&order=ASC&parent=' . $cat);
+
+    if( $next ) :    
+    foreach( $next as $cat ) :
+      
+      if( $cat->slug!='uncategorized') :
+        if($cat->parent==0)
+          echo '<ul><li><strong>' . $cat->name . '</strong>';
+        else
+          echo '<ul><li class="child"><strong><a href="' . get_category_link( $cat->term_id ) . '">' . $cat->name . '</a></strong>';
+        hierarchical_category_tree( $cat->term_id );
+      endif;
+    endforeach;    
+    endif;
+
+  echo '</li></ul>'; echo "\n";
+} 
+

@@ -23,25 +23,6 @@ $website_themes_data = $query->posts;
 ================================================== */
 echo get_template_part('functions/templates/sections'); ?>
 
-<?php
-if (!empty($website_themes_data)) {
-    foreach ($website_themes_data as $website_themes_val) {
-
-      $post_id= $website_themes_val->ID;
-      $theme_name= $website_themes_val->post_title;
-      $theme_by=get_post_meta($post_id,'theme_by',true);
-      $theme_url=get_post_meta($post_id,'theme_url',true);
-      $popularity=get_post_meta($post_id,'popularity',true);
-      $description=get_post_meta($post_id,'post_excerpt',true);
-      // echo '<pre>';
-      // print_r($website_themes_val);
-      // print_r(get_the_category($post_id));
-      $featured_img= wp_get_attachment_url(get_post_thumbnail_id($post_id, '_thumbnail'));
-
-
-    }
-}?>
-
 <div class="pagecontent">
 	<div class="container-fluid">
 		<div class="row">
@@ -54,8 +35,8 @@ if (!empty($website_themes_data)) {
 			        <ul>
 			            <li class="top-head">THEME CATEGORIES
 			            </li>
-
-			            <li>
+                  <?php echo hierarchical_category_tree( 0 ); ?>
+			          <!--  <li>
 			                <span class="head-ul">Accomodation</span>
 			                <ul>
 			                    <li class="child active">
@@ -111,7 +92,7 @@ if (!empty($website_themes_data)) {
 			                        <a href="javascript:void(0)">Bed and Breakfast</a>
 			                    </li>
 			                </ul>
-			            </li>
+			            </li>  -->
 			        </ul>
 			    </div>
 			</div>
