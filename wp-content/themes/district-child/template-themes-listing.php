@@ -32,6 +32,12 @@ if (!empty($website_themes_data)) {
       $theme_by=get_post_meta($post_id,'theme_by',true);
       $theme_url=get_post_meta($post_id,'theme_url',true);
       $popularity=get_post_meta($post_id,'popularity',true);
+      $description=get_post_meta($post_id,'post_excerpt',true);
+      // echo '<pre>';
+      // print_r($website_themes_val);
+      // print_r(get_the_category($post_id));
+      $featured_img= wp_get_attachment_url(get_post_thumbnail_id($post_id, '_thumbnail'));
+
 
     }
 }?>
@@ -136,13 +142,27 @@ if (!empty($website_themes_data)) {
 			                </li>
 			            </ol>
 			        </div>
+          
+              <?php
+          if (!empty($website_themes_data)) { 
+          
+            foreach ($website_themes_data as $website_themes_val) {
+              $post_id= $website_themes_val->ID;
+              $theme_name= $website_themes_val->post_title;
+              $theme_by=get_post_meta($post_id,'theme_by',true);
+              $theme_url=get_post_meta($post_id,'theme_url',true);
+              $popularity=get_post_meta($post_id,'popularity',true);
+              $description=$website_themes_val->post_excerpt;
+              $featured_img= wp_get_attachment_url(get_post_thumbnail_id($post_id, '_thumbnail'));
 
+              $post_categories=get_the_category($post_id);
+            ?>
 			        <div class="col-md-6 col-xs-12 col-sm-12 theme-card">
 			            <div class="imgwrapper">
 			                <div class="full-hover-border-effect">
 			                    <div class="img-a">
 			                        <a><!-- <img class="prem-img" src="./img/premium_badge.png" width="100"> -->
-			                         <img class="img-responsive image actl-img" src="http://akdesign.in/dev/vacationlabs/Adventure-Website-Theme.png"></a>
+			                         <img class="img-responsive image actl-img" src="<?php echo $featured_img;?>"></a>
 			                        <div class="overlay">
 			                            <div class="text">
 			                                <a class="button" href="./preview.html" rel="nofollow" target="_self"><span class="ag-button-inner">Preview</span></a><br>
@@ -160,11 +180,22 @@ if (!empty($website_themes_data)) {
 			                    </h3>
 
 			                    <p>
-			                        Best for adventure tour operators and travel agents, selling activites like trekking, rafting, bungee jumping and more.
+			                       <?php echo $description; ?>
 			                    </p>
 
 			                    <p>
-			                        <span class="badge first">Special Hostels</span><span class="badge">Multiple Hostels</span><span class="badge">Camps &amp; Hotels</span><span class="badge">Camps &amp; Hotels</span><span class="badge">Villas/Apartment Rentals</span>
+                            <?php
+                            if (!empty($website_themes_data)) {
+                              foreach ($post_categories as $cvalue) {
+                                if($cvalue->parent!=0){                           
+
+                            ?>
+		                              <span class="badge first"><?php echo $cvalue->name; ?></span>
+                              <?php
+                                }  
+                              }
+                            }
+                            ?>
 			                    </p>
 
 			                    <div class="full-overlay">
@@ -172,6 +203,10 @@ if (!empty($website_themes_data)) {
 			                </div>
 			            </div>
 			        </div>
+              <?php
+            }
+          }
+        ?>
 			    </div>
 			</div>
 		</div>
