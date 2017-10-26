@@ -201,6 +201,75 @@ function vacationlab_pre_get_posts( $query )
     return $query;
 }
 
+/**
+ * Add meta box
+ */
+function theme_addition_details_add_meta_boxes( $post ){
+
+  add_meta_box( 'theme_detail_meta_box', __( 'Theme Details', 'website_theme_example_plugin' ), 'website_theme_build_meta_box', 'website_theme', 'normal', 'high' );
+}
+
+add_action( 'add_meta_boxes_website_theme', 'theme_addition_details_add_meta_boxes' ,10,1);
+
+/**
+ *  meta box markup
+ */
+function website_theme_build_meta_box(){
+  $post_id = get_the_ID();
+  
+    if (get_post_type($post_id) != 'website_theme') {
+        return;
+    }
+    
+    $_popularity = get_post_meta($post_id, '_popularity', true);
+    $_theme_by = get_post_meta($post_id, '_theme_by', true);
+    $_theme_url = get_post_meta($post_id, '_theme_url', true);
+    $_premium = get_post_meta($post_id, '_premium', true);
+    wp_nonce_field('premium_nonce_nonce_'.$post_id, 'premium_nonce');
+    ?>
+    <div class="misc-pub-section misc-pub-section-last">
+        <label><?php _e('Popularity: '); ?><input type="number" value="<?php echo  $_popularity;?>" name="_popularity" /></label>
+        <label><?php _e('Theme By: '); ?><input type="text" value="<?php echo  $_theme_by;?> " name="_theme_by" /></label>
+        <label><?php _e('Theme Url: '); ?><input type="text" value="<?php echo  $_theme_url;?>" name="_theme_url" /></label>
+    </div>
+    <div class="misc-pub-section misc-pub-section-last">
+        <label><input type="checkbox" value="1" <?php checked($_premium, true, true); ?> name="_premium" /><?php _e('Premium'); ?></label>
+    </div>
+    <?php
+
+
+}
+
+/**
+ * Saves a website theme build meta box.
+ *
+ * @param      <type>  $post_id  The post identifier
+ */
+function save_website_theme_build_meta_box( $post_id){
+  if(isset($_REQUEST['post_type'])){
+    if($_REQUEST['post_type']=='website_theme'){
+      if(isset($_REQUEST['_popularity'])){
+        update_post_meta( $post_id, '_popularity',$_REQUEST['_popularity']);
+      }  
+
+      if(isset($_REQUEST['_theme_by'])){
+        update_post_meta( $post_id, '_theme_by',$_REQUEST['_theme_by']);
+      }  
+
+      if(isset($_REQUEST['_theme_url'])){
+        update_post_meta( $post_id, '_theme_url',$_REQUEST['_theme_url']);
+      }  
+      if(isset($_REQUEST['_premium'])){
+            update_post_meta( $post_id, '_premium',$_REQUEST['_premium']);
+      }
+      else{
+         update_post_meta( $post_id, '_premium',0);
+      }
+    }
+  }
+}
+add_action('save_post', 'save_website_theme_build_meta_box');
+
 
 include 'template-theme-listing-func.php';
 include 'breadcrumbs.php';
