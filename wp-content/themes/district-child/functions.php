@@ -282,6 +282,17 @@ function save_website_theme_build_meta_box( $post_id){
 }
 add_action('save_post', 'save_website_theme_build_meta_box');
 
+/**
+ * Custom Taxonomy tree view fix 
+ */
+add_filter( 'wp_terms_checklist_args', 'checked_not_ontop', 1, 2 );
+function checked_not_ontop( $args, $post_id ) {
+    if ( 'website_theme' == get_post_type( $post_id ) && $args['taxonomy'] == 'travel-website-themes' )
+        $args['checked_ontop'] = false;
+
+    return $args;
+}
+
 
 include 'template-theme-listing-func.php';
 include 'breadcrumbs.php';
