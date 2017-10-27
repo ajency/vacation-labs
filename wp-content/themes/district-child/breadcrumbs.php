@@ -75,7 +75,27 @@ function vacationLabBreadcrumbs()
 
             }
 
-        } elseif (is_search()) {
+        } 
+
+         else if (is_tax()) {
+           $cat = get_queried_object();
+            if ($cat->parent != 0) {
+                $cats = get_category_parents($cat->parent, true, $sep);
+                $cats = preg_replace("#^(.+)$sep$#", "$1", $cats);
+                $cats = preg_replace('#<a([^>]+)>([^<]+)<\/a>#', $link_before . '<a$1' . $link_attr . '>' . $link_in_before . '$2' . $link_in_after . '</a>' . $link_after, $cats);
+                if ($show_home_link) {
+                    echo $sep;
+                }
+
+                echo $cats;
+            }
+                if ($show_current) {
+                    echo $sep . $before . sprintf($text['category'], single_cat_title('', false)) . $after;
+                }
+
+
+        }
+        elseif (is_search()) {
             if (have_posts()) {
                 if ($show_home_link && $show_current) {
                     echo $sep;

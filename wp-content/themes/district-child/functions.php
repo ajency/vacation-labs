@@ -140,7 +140,7 @@ function website_themes() {
     'description'           => __( 'website themes', 'text_domain' ),
     'labels'                => $labels,
     'supports'              => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail','custom-fields', 'post-formats', ),
-    'taxonomies'            => array( 'category' ),
+    'taxonomies'            => array( 'travel-website-themes' ),
     'hierarchical'          => false,
     'public'                => true,
     'show_ui'               => true,
@@ -160,24 +160,39 @@ function website_themes() {
 add_action( 'init', 'website_themes', 0 );
 
 }
-
+add_action( 'init', 'build_taxonomies', 0 );  
+function build_taxonomies() {  
+    register_taxonomy(  
+    'travel-website-themes',  
+    'website_theme',  // this is the custom post type(s) I want to use this taxonomy for
+    array(  
+        'hierarchical' => true,  
+        'label' => 'Theme Categories',  
+        'query_var' => true,  
+        'rewrite' => array('hierarchical' =>true)
+    )  
+);  
+}
 
 /**
  * added to get categories in hierarchical order
  */
 function hierarchical_category_tree( $cat ) {
 
-  $next = get_categories('hide_empty=false&orderby=name&order=ASC&parent=' . $cat);
-
+  $next = get_categories('hide_empty=false&taxonomy=travel-website-themes&orderby=name&order=ASC&parent=' . $cat);
+  // echo "<pre>";
+  // print_r($next);
     if( $next ) :
     foreach( $next as $cat ) :
 
       if( $cat->slug!='uncategorized') :
-        if($cat->parent==0)
-          echo '<li><span class="head-ul"><a href="' . get_category_link( $cat->term_id ) . '">' . $cat->name . '<a/></span>';
-        else
-          echo '<ul><li class="child"><strong><a href="' . get_category_link( $cat->term_id ) . '">' . $cat->name . '</a></strong>';
+        if($cat->parent==0 && $cat->name!='')
+          echo '<li><span class="head-ul"><a href="' . get_term_link( $cat->term_id,'travel-website-themes' ) . '">' . $cat->name . '<a/></span>';
+        else if($cat->name!='')
+          echo '<ul><li class="child"><a href="' . get_term_link( $cat->term_id,'travel-website-themes' ) . '">' . $cat->name . '</a>';
+
         hierarchical_category_tree( $cat->term_id );
+
       endif;
     endforeach;
     endif;
@@ -194,7 +209,7 @@ function vacationlab_pre_get_posts( $query )
     if ( ! $query->is_main_query() || $query->is_admin() )
         return false; 
 
-    if ( $query->is_category() ) {
+    if ( $query->is_tax() || $query->is_category() ) {
         $query->set( 'post_type', 'website_theme' );
         $query->set( 'posts_per_page', 1 );
     }
