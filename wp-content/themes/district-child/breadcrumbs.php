@@ -27,7 +27,7 @@ function vacationLabBreadcrumbs()
     /* === END OF OPTIONS === */
 
     global $post;
-    $home_url       = home_url('/travel-website-themes');
+    $home_url       = home_url('/travel-website-theme');
     $link_before    = '<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">';
     $link_after     = '</span>';
     $link_attr      = ' itemprop="item"';
