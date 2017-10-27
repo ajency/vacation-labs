@@ -169,7 +169,7 @@ function build_taxonomies() {
         'hierarchical' => true,  
         'label' => 'Theme Categories',  
         'query_var' => true,  
-        'rewrite' => array('hierarchical' =>true)
+        'rewrite' => array('hierarchical' =>true,  'with_front' => false)
     )  
 );  
 }
