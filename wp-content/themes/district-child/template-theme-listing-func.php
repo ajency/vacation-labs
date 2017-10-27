@@ -17,19 +17,18 @@ function templateThemeListing($query){
 
                 </div>
                 <div class="col-md-6 col-sm-6">
-                    <p style="padding-bottom: 10px; font-style: normal;margin: 0;float: right; padding-right: 10%; font-size: 15px;">
-                        <span tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-style="mypops" id="Pops" style="" data-original-title="" title="">
+                    <div class="popover-holder" style="padding-bottom: 10px; font-style: normal;margin: 0;float: right; padding-right: 10%; font-size: 15px;">
+                        <span tabindex="0" class="popover-toggle">
                             <span style="color:#757171;">Sort By : </span>
                             <span style="color:#0584ab;">Most Popular</span>
                             <i class="arrow down"></i>
                         </span>
-                    </p>
-                    <div id="popover-content" class="hide" style="display: none">
-                      <div>
-                        <a href="#" class="sortby-dropdwn">Most Popular</a><br>
-                        <a href="#" class="sortby-dropdwn">Most Recent</a><br>
-                        <a href="#" class="sortby-dropdwn">Name <span>(Alphabetical)<span></span></span></a>
-                      </div>
+                        <div class="arrow"></div>
+                        <ul id="" class="hide popover-content">
+                            <li><a href="#" class="sortby-dropdwn">Most Popular</a></li>
+                            <li><a href="#" class="sortby-dropdwn">Most Recent</a></li>
+                            <li><a href="#" class="sortby-dropdwn">Name <span>(Alphabetical)</span></a></li>
+                        </ul>
                     </div>
                 </div>
 
@@ -45,19 +44,18 @@ function templateThemeListing($query){
 
                 </div>
 
-                <div class="col-sm-6 col-xs-6" style="padding:  15px 0!important;cursor: pointer;" id="Pops-mob" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-style="mypops" data-original-title="" title="">
-                    <div class="sort-icon"></div>
-                    <span style="font-size: 14px;font-weight: 500;margin-right: ">Sort</span>
-
+                <div class="col-sm-6 col-xs-6 popover-holder" style="padding:  15px 0!important;cursor: pointer;" >
+                    <div tabindex="0" class="popover-toggle">
+                        <div class="sort-icon"></div>
+                        <span style="font-size: 14px;font-weight: 500;margin-right: ">Sort</span>
+                    </div>
+                    <div class="arrow"></div>
+                    <ul id="" class="hide popover-content">
+                        <li><a href="#" class="sortby-dropdwn">Most Popular</a></li>
+                        <li><a href="#" class="sortby-dropdwn">Most Recent</a></li>
+                        <li><a href="#" class="sortby-dropdwn">Name <span>(Alphabetical)</span></a></li>
+                    </ul>
                 </div>
-                <div id="popover-content" class="hide" style="display: none;">
-                  <div>
-                    <a href="#" class="sortby-dropdwn">Most Popular</a><br>
-                    <a href="#" class="sortby-dropdwn">Most Recent</a><br>
-                    <a href="#" class="sortby-dropdwn">Name <span>(Alphabetical)<span></span></span></a>
-                  </div>
-                </div>
-
             </div>
         </div>
 
@@ -230,6 +228,17 @@ function templateThemeListing($query){
         jQuery('body').on('click', '.toggle-filter', function(e){
             e.preventDefault();
             jQuery('.filters-slide').addClass('shown');
+        });
+
+        jQuery('body').on('click', '.popover-toggle', function() {
+            jQuery(this).parent().toggleClass('active');
+        });
+        //Hide the dropdown when clicked off
+        jQuery(document).on('click touchstart', function(event) {
+          if (!jQuery(event.target).closest('.popover-holder').length) {
+            // Hide the menus.
+            jQuery('.popover-holder.active').removeClass('active');
+          }
         });
     </script>
 <?php

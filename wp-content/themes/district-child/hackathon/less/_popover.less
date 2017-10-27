@@ -1,0 +1,97 @@
+.popover-content{
+	display: none;
+}
+
+.popover-holder{
+	position: relative;
+	overflow: visible;
+	cursor: pointer;
+	&.active{
+		.popover-content{
+			display: block;
+			position: absolute;
+			top: 30px;
+			left: 10px;
+			background: #fff;
+			list-style-type: none;
+			z-index: 1;
+
+			max-width: 276px;
+		    padding: 5px 0;
+		    font-size: 14px;
+		    font-style: normal;
+		    font-weight: 400;
+		    line-height: 1.42857143;
+		    text-align: left;
+		    text-decoration: none;
+		    text-shadow: none;
+		    text-transform: none;
+		    letter-spacing: normal;
+		    word-break: normal;
+		    word-spacing: normal;
+		    word-wrap: normal;
+		    white-space: normal;
+		    background-color: #fff;
+		    -webkit-background-clip: padding-box;
+		    background-clip: padding-box;
+		    border: 1px solid #ccc;
+		    border: 1px solid rgba(0,0,0,.2);
+		    border-radius: 6px;
+		    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+		    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+		    line-break: auto;
+
+		    li{
+		    	list-style-type: none;
+		    	margin: 0;
+		    	line-height: 1.2em;
+		    	a{
+		    		padding: 5px 10px;
+		    		display: block;
+		    		color: #656565;
+	    		    font-size: 14px;
+	    		    font-weight: 600;
+	    		    span{
+	    		    	font-weight: normal;
+	    		    }
+	    		    &:hover{
+	    		    	color: #00a498;
+	    		    }
+		    	}
+		    }
+		}
+		&>.arrow, &>.arrow:after {
+		    position: absolute;
+		    display: block;
+		    width: 0;
+		    height: 0;
+		    border-color: transparent;
+		    border-style: solid;
+		}
+		&>.arrow{
+			border-width: 11px;
+			top: 19px;
+			left: 50%;
+			margin-left: -32px;
+			border-top-width: 0;
+			border-bottom-color: #999;
+			border-bottom-color: rgba(132, 132, 132, 0.25);
+		}
+		&>.arrow:after{
+			top: 1px;
+		    margin-left: -10px;
+		    content: " ";
+		    border-top-width: 0;
+		    border-bottom-color: #fff;
+		}
+
+		@media(max-width: 767px){
+			.popover-content{
+				top: 40px;
+			}
+			&>.arrow{
+				top: 29px;
+			}
+		}
+	}
+}
