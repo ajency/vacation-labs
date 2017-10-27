@@ -24,7 +24,7 @@ function templateThemeListing($query){
                             <i class="arrow down"></i>
                         </span>
                         <div class="arrow"></div>
-                        <ul id="popover-content" class="hide popover-content">
+                        <ul id="" class="hide popover-content">
                             <li><a href="#" class="sortby-dropdwn">Most Popular</a></li>
                             <li><a href="#" class="sortby-dropdwn">Most Recent</a></li>
                             <li><a href="#" class="sortby-dropdwn">Name <span>(Alphabetical)</span></a></li>
@@ -44,19 +44,18 @@ function templateThemeListing($query){
 
                 </div>
 
-                <div class="col-sm-6 col-xs-6" style="padding:  15px 0!important;cursor: pointer;" id="Pops-mob" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-style="mypops" data-original-title="" title="">
-                    <div class="sort-icon"></div>
-                    <span style="font-size: 14px;font-weight: 500;margin-right: ">Sort</span>
-
+                <div class="col-sm-6 col-xs-6 popover-holder" style="padding:  15px 0!important;cursor: pointer;" >
+                    <div tabindex="0" class="popover-toggle">
+                        <div class="sort-icon"></div>
+                        <span style="font-size: 14px;font-weight: 500;margin-right: ">Sort</span>
+                    </div>
+                    <div class="arrow"></div>
+                    <ul id="" class="hide popover-content">
+                        <li><a href="#" class="sortby-dropdwn">Most Popular</a></li>
+                        <li><a href="#" class="sortby-dropdwn">Most Recent</a></li>
+                        <li><a href="#" class="sortby-dropdwn">Name <span>(Alphabetical)</span></a></li>
+                    </ul>
                 </div>
-                <div id="popover-content" class="hide" style="display: none;">
-                  <div>
-                    <a href="#" class="sortby-dropdwn">Most Popular</a><br>
-                    <a href="#" class="sortby-dropdwn">Most Recent</a><br>
-                    <a href="#" class="sortby-dropdwn">Name <span>(Alphabetical)<span></span></span></a>
-                  </div>
-                </div>
-
             </div>
         </div>
 

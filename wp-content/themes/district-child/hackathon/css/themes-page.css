@@ -1177,6 +1177,14 @@
   border-top-width: 0;
   border-bottom-color: #fff;
 }
+@media (max-width: 767px) {
+  .bootstrap-content .popover-holder.active .popover-content {
+    top: 40px;
+  }
+  .bootstrap-content .popover-holder.active > .arrow {
+    top: 29px;
+  }
+}
 .bootstrap-content.pagecontent {
   padding-top: 0;
   background-color: #fff;
