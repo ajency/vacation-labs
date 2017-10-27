@@ -6,18 +6,58 @@ $term = get_queried_object();
 // echo "<pre>";
 // print_r($term);
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$query               = new WP_Query(array(
-  'post_type' => 'website_theme',
-   'posts_per_page' => 4,
-   'paged' => $paged,
-   'tax_query' => array(
-    array(
-      'taxonomy' => 'travel-website-themes',
-      'field'    => 'slug',
-      'terms'    => $term->slug
-    ),
-  ),
- ));
+
+
+//sorting  code start
+
+if ($_REQUEST['order_by'] == 'title') {
+    $args = array(
+        'post_type'      => 'website_theme',
+        'posts_per_page' => 4,
+        'paged'          => $paged,
+        'orderby'        => 'title',
+        'order'          => 'ASC',
+        'tax_query' => array(
+          array(
+            'taxonomy' => 'travel-website-themes',
+            'field'    => 'slug',
+            'terms'    => $term->slug
+          ),
+        ),
+    );
+} else if ($_REQUEST['order_by'] == 'recent') {
+    $args = array(
+        'post_type'      => 'website_theme',
+        'posts_per_page' => 4,
+        'paged'          => $paged,
+        'tax_query' => array(
+          array(
+            'taxonomy' => 'travel-website-themes',
+            'field'    => 'slug',
+            'terms'    => $term->slug
+          ),
+        ),
+    );
+} else {
+    //based on popularity
+    $args = array(
+        'post_type'      => 'website_theme',
+        'posts_per_page' => 4,
+        'orderby'        => 'meta_value_num',
+        'meta_key'       => '_popularity',
+        'tax_query' => array(
+          array(
+            'taxonomy' => 'travel-website-themes',
+            'field'    => 'slug',
+            'terms'    => $term->slug
+          ),
+        ),
+    );
+}
+
+//sorting code end
+
+$query               = new WP_Query($args);
 ?>
 
 <?php

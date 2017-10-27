@@ -1,8 +1,9 @@
 <?php
 
 function templateThemeListing($query){
-  $website_themes_data = $query->posts;
+    $website_themes_data = $query->posts;
 
+    $sort_label=array('recent' => 'Most Recent','popular'=>'Most Popular','title'=>'Name <span>(Alphabetical)')
 
 ?>
     <div class="pagecontent bootstrap-content">
@@ -20,14 +21,14 @@ function templateThemeListing($query){
                     <div class="popover-holder" style="padding-bottom: 10px; font-style: normal;margin: 0;float: right; padding-right: 10%; font-size: 15px;">
                         <span tabindex="0" class="popover-toggle">
                             <span style="color:#757171;">Sort By : </span>
-                            <span style="color:#0584ab;">Most Popular</span>
+                            <span style="color:#0584ab;"><?php echo isset($_REQUEST['order_by'])?$sort_label[$_REQUEST['order_by']]:"Most Popular"?></span>
                             <i class="arrow down"></i>
                         </span>
                         <div class="arrow"></div>
                         <ul id="" class="hide popover-content">
-                            <li><a href="#" class="sortby-dropdwn">Most Popular</a></li>
-                            <li><a href="#" class="sortby-dropdwn">Most Recent</a></li>
-                            <li><a href="#" class="sortby-dropdwn">Name <span>(Alphabetical)</span></a></li>
+                            <li><a href="?order_by=popular" class="sortby-dropdwn">Most Popular</a></li>
+                            <li><a href="?order_by=recent" class="sortby-dropdwn">Most Recent</a></li>
+                            <li><a href="?order_by=title" class="sortby-dropdwn">Name <span>(Alphabetical)</span></a></li>
                         </ul>
                     </div>
                 </div>
