@@ -108,7 +108,7 @@ function templateThemeListing($query){
                     $description=$website_themes_val->post_excerpt;
                     $featured_img= wp_get_attachment_url(get_post_thumbnail_id($post_id, '_thumbnail'));
 
-                    $post_categories=get_the_category($post_id);
+                    $post_categories=get_the_terms($post_id,'travel-website-themes');
                   ?>
                     <div class="col-md-6 col-xs-12 col-sm-12 theme-card">
                         <div class="imgwrapper">
@@ -144,7 +144,7 @@ function templateThemeListing($query){
 
                                 <p>
                                   <?php
-                                  if (!empty($website_themes_data)) {
+                                  if (!empty($post_categories)) {
                                     foreach ($post_categories as $cvalue) {
                                       if($cvalue->parent!=0){
 
