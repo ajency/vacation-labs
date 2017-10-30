@@ -955,12 +955,23 @@
 .bootstrap-content .sidenav-trvl-thms ul li ul li {
   padding-left: 10px;
 }
+.bootstrap-content .sidenav-trvl-thms ul li ul li a {
+  color: #878787;
+}
 .bootstrap-content .sidenav-trvl-thms ul li ul li.active {
   background: #e7faff;
   color: #0082a8;
 }
 .bootstrap-content .sidenav-trvl-thms ul li ul li.active a {
   color: #0082a8;
+}
+.bootstrap-content .sidenav-trvl-thms > ul > ul > li > a {
+  color: #616161;
+  font-size: 16px;
+  font-weight: 700;
+}
+.bootstrap-content .sidenav-trvl-thms > ul > ul {
+  margin: 0;
 }
 .bootstrap-content .sidenav-trvl-thms .top-head {
   border-bottom: 1px solid #979797;
@@ -1184,6 +1195,54 @@
   .bootstrap-content .popover-holder.active > .arrow {
     top: 29px;
   }
+}
+.bootstrap-content.preview-header {
+  background-color: #006DB1;
+  background: -webkit-gradient(linear, left top, right top, from(#006cc5), to(#00cab2));
+  background: -webkit-linear-gradient(left, #006cc5, #00cab2);
+  background: -moz-linear-gradient(left, #006cc5, #00cab2);
+  background: -ms-linear-gradient(left, #006cc5, #00cab2);
+  background: -o-linear-gradient(left, #006cc5, #00cab2);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.5);
+}
+.bootstrap-content.preview-header .go-back {
+  margin-top: 15px;
+}
+.bootstrap-content.preview-header .logo {
+  margin-top: 18px;
+}
+.bootstrap-content.preview-header .preview-title {
+  margin-top: 10px;
+}
+.bootstrap-content.preview-header h1 {
+  margin: 0;
+  font-size: 20px;
+  color: #fff;
+  font-weight: normal;
+}
+.bootstrap-content.preview-header #logo img {
+  max-width: 100%;
+}
+.bootstrap-content.preview-header .view-switcher {
+  padding: 5px;
+}
+.bootstrap-content.preview-header .view-switcher .btn {
+  font-size: 24px;
+  color: #00696c;
+  background: none;
+  border: 1px solid #00696c;
+}
+.bootstrap-content.preview-header .view-switcher .btn:hover {
+  color: #ffffff;
+  border: 1px solid #00696c;
+}
+.bootstrap-content.preview-header .view-switcher .btn:active {
+  color: #000000;
+  background: #00696c;
+}
+.bootstrap-content.preview-header .view-switcher .btn.active {
+  color: #ffffff;
+  background: #00696c;
 }
 .bootstrap-content.pagecontent {
   padding-top: 0;

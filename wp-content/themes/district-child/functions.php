@@ -160,18 +160,18 @@ function website_themes() {
 add_action( 'init', 'website_themes', 0 );
 
 }
-add_action( 'init', 'build_taxonomies', 0 );  
-function build_taxonomies() {  
-    register_taxonomy(  
-    'travel-website-themes',  
+add_action( 'init', 'build_taxonomies', 0 );
+function build_taxonomies() {
+    register_taxonomy(
+    'travel-website-themes',
     'website_theme',  // this is the custom post type(s) I want to use this taxonomy for
-    array(  
-        'hierarchical' => true,  
-        'label' => 'Theme Categories',  
-        'query_var' => true,  
+    array(
+        'hierarchical' => true,
+        'label' => 'Theme Categories',
+        'query_var' => true,
         'rewrite' => array('hierarchical' =>true,  'with_front' => false)
-    )  
-);  
+    )
+);
 }
 
 /**
@@ -181,21 +181,21 @@ function hierarchical_category_tree( $cat ) {
 
   $next = get_categories('hide_empty=false&taxonomy=travel-website-themes&orderby=name&order=ASC&parent=' . $cat);
   $term = get_queried_object();
-  
-  if( $next ) :    
+
+  if( $next ) :
     foreach( $next as $cat ) :
     if($cat->term_id==$term->term_id)
       echo '<ul><li class="active">';
     else
-      echo '<ul><li>';
-    
-    echo '<a href="' . get_category_link( $cat->term_id ) . '" >'.$cat->name.' </a>  '; 
+      echo '<ul><li class="">';
+
+    echo '<a href="' . get_category_link( $cat->term_id ) . '" >'.$cat->name.' </a>  ';
     hierarchical_category_tree( $cat->term_id );
-    endforeach;    
+    endforeach;
   endif;
 
   echo '</li></ul>'; echo "\n";
-}  
+}
 
 /**
  * added to get pagination on category pages
@@ -283,7 +283,7 @@ function save_website_theme_build_meta_box( $post_id){
 add_action('save_post', 'save_website_theme_build_meta_box');
 
 /**
- * Custom Taxonomy tree view fix 
+ * Custom Taxonomy tree view fix
  */
 add_filter( 'wp_terms_checklist_args', 'checked_not_ontop', 1, 2 );
 function checked_not_ontop( $args, $post_id ) {
