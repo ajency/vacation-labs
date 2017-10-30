@@ -6,13 +6,16 @@ Template Name: Themes Single
 
 get_header();
 
+$post_id=$_REQUEST['id'];
+
+$theme_url=get_post_meta($post_id,'_theme_url',true);
 ?>
 
 <div class="bootstrap-content preview-header">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-1 text-right go-back">
-                <a href="#">
+                <a href="/travel-website-theme">
                     <img alt="Go Back" src="http://akdesign.in/dev/vacationlabs/img/back_arrow.png">
                 </a>
             </div>
@@ -24,7 +27,7 @@ get_header();
             </div>
 
             <div class="col-md-4 text-center preview-title ">
-                <h1 class="">Awesome Theme for Bread &amp; Breakfast</h1>
+                <h1 class=""><?php echo get_the_title($post_id); ?></h1>
             </div>
 
             <div class="col-md-4">
@@ -55,7 +58,7 @@ get_header();
 </div>
 
 <div style="height: 80vh;">
-    <iframe src="https://techcrunch.com/" frameborder="0" style="overflow: hidden; height: 100%;" width="100%;" height="100%"></iframe>
+    <iframe src="<?php echo $theme_url;?>" frameborder="0" style="overflow: hidden; height: 100%;" width="100%;" height="100%"></iframe>
 </div>
 
 <style type="text/css">
