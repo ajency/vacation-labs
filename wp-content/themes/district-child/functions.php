@@ -153,6 +153,7 @@ function website_themes() {
     'exclude_from_search'   => false,
     'publicly_queryable'    => true,
     'capability_type'       => 'post',
+    'rewrite' => array('with_front' => false)
   );
   register_post_type( 'travel-website-theme', $args );
 
@@ -189,7 +190,7 @@ function hierarchical_category_tree( $cat ) {
     else
       echo '<ul><li class="">';
 
-    echo '<a href="' . get_category_link( $cat->term_id ) . '" >'.$cat->name.' </a>  ';
+    echo '<a href="' . get_category_link( $cat->term_id ) . '" title='.$cat->name.'>'.$cat->name.' </a>  ';
     hierarchical_category_tree( $cat->term_id );
     endforeach;
   endif;

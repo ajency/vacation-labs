@@ -3,7 +3,7 @@
 function templateThemeListing($query){
     $website_themes_data = $query->posts;
 
-    $sort_label=array('recent' => 'Most Recent','popular'=>'Most Popular','title'=>'Name <span>(Alphabetical)')
+    $sort_label=array('recent' => 'Recent','popular'=>'Popularity','title'=>'Name')
 
 ?>
     <div class="pagecontent bootstrap-content">
@@ -21,14 +21,14 @@ function templateThemeListing($query){
                     <div class="popover-holder" style="padding-bottom: 10px; font-style: normal;margin: 0;float: right; padding-right: 10%; font-size: 15px;">
                         <span tabindex="0" class="popover-toggle">
                             <span style="color:#757171;">Sort By : </span>
-                            <span style="color:#0584ab;"><?php echo isset($_REQUEST['order_by'])?$sort_label[$_REQUEST['order_by']]:"Most Popular"?></span>
+                            <span style="color:#0584ab;"><?php echo isset($_REQUEST['order_by'])?$sort_label[$_REQUEST['order_by']]:"Popularity"?></span>
                             <i class="arrow down"></i>
                         </span>
                         <div class="arrow"></div>
                         <ul id="" class="hide popover-content">
-                            <li><a href="?order_by=popular" class="sortby-dropdwn">Most Popular</a></li>
-                            <li><a href="?order_by=recent" class="sortby-dropdwn">Most Recent</a></li>
-                            <li><a href="?order_by=title" class="sortby-dropdwn">Name <span>(Alphabetical)</span></a></li>
+                            <li><a href="?order_by=popular" class="sortby-dropdwn" title="Popularity">Popularity</a></li>
+                            <li><a href="?order_by=recent" class="sortby-dropdwn" title="Recent">Recent</a></li>
+                            <li><a href="?order_by=title" class="sortby-dropdwn" title="Name">Name</a></li>
                         </ul>
                     </div>
                 </div>
@@ -109,6 +109,7 @@ function templateThemeListing($query){
                     $featured_img= wp_get_attachment_url(get_post_thumbnail_id($post_id, '_thumbnail'));
 
                     $post_categories=get_the_terms($post_id,'travel-website-themes');
+                    $post_link= get_post_permalink( $post_id, false, false );
                   ?>
                     <div class="col-md-6 col-xs-12 col-sm-12 theme-card">
                         <div class="imgwrapper">
@@ -121,17 +122,17 @@ function templateThemeListing($query){
                                     </div>
                                     <?php } ?>
                                     <!-- <img class="prem-img" src="./img/premium_badge.png" width="100"> -->
-                                     <img class="img-responsive image actl-img" src="<?php echo $featured_img;?>">
+                                     <img class="img-responsive image actl-img" src="<?php echo $featured_img;?>" alt="<? echo $theme_name; ?>">
                                     <div class="overlay">
                                         <div class="text">
-                                            <a class="button" href="<? echo get_post_permalink( $post_id, false, false );?>" rel="nofollow" target="_self"><span class="ag-button-inner">Preview</span></a><br>
+                                            <a class="button" href="<?php echo  $post_link; ?>" rel="nofollow" target="_self"><span class="ag-button-inner">Preview</span></a><br>
                                             <a class="button transparent" href="#" rel="nofollow" target="_self"><span class="ag-button-inner">Select</span></a>
                                         </div>
                                     </div>
                                 </div>
 
                                 <h2 class="theme_name">
-                                    <?php echo $theme_name; ?>
+                                    <a href="<?php echo  $post_link; ?>"><?php echo $theme_name; ?></a>
                                 </h2>
 
                                 <h3 class="author">
@@ -149,7 +150,7 @@ function templateThemeListing($query){
                                       if($cvalue->parent!=0){
 
                                   ?>
-                                        <span class="badge first"><?php echo $cvalue->name; ?></span>
+                                        <span class="badge first"><a href="<?php echo get_category_link( $cvalue->term_id ) ?>" ><?php echo $cvalue->name; ?></a></span>
                                     <?php
                                       }
                                     }
