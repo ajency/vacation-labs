@@ -1,19 +1,21 @@
 <?php
 
-function templateThemeListing($query){
+function templateThemeListing($query,$args=array()){
     $website_themes_data = $query->posts;
 
-    $sort_label=array('recent' => 'Recent','popular'=>'Popularity','title'=>'Name')
+    $sort_label=array('recent' => 'Recent','popular'=>'Popularity','title'=>'Name');
+
+    $header_title=isset($args['category_name'])?$args['category_name']:"Website Themes Optimized for Travel";
+    $header_desc=isset($args['category_desc'])?$args['category_desc']:"Fully responsive, customizable themes to match your brand &amp; boost your business";
 
 ?>
 
     <div class="section center dark nocontent nopadding" style="background-color: #526670;">
         <div class="container">
             <div class="fourteen columns offset-by-one content">
-                <h2>Website Themes Optimized for Travel</h2>
+                <h2><?php echo $header_title; ?></h2>
                 <p class="p1" style="font-size: 1.2em;font-weight: 300;font-family: 'Lato'">
-                    <span style="color: #ffffff"> Fully responsive, customizable themes to match your brand &amp; boost your business</span>
-                </p>
+                    <span style="color: #ffffff"> <?php echo $header_desc; ?>
                 <div class="clear"></div>
             </div>
             <div class="clear"></div>

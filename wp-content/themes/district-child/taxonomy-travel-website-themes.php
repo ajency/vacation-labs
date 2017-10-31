@@ -68,7 +68,8 @@ $query               = new WP_Query($args);
 echo get_template_part('functions/templates/sections'); ?>
 
 <?php
-templateThemeListing($query);
+$data=array('category_name' => $term->name,'category_desc' => $term->description);
+templateThemeListing($query,$data);
 
 /* Get Footer
 ================================================== */

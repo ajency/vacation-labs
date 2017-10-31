@@ -225,7 +225,7 @@ function theme_addition_details_add_meta_boxes( $post ){
   add_meta_box( 'theme_detail_meta_box', __( 'Theme Details', 'website_theme_example_plugin' ), 'website_theme_build_meta_box', 'travel-website-theme', 'normal', 'high' );
 }
 
-add_action( 'add_meta_boxes_website_theme', 'theme_addition_details_add_meta_boxes' ,10,1);
+add_action( 'add_meta_boxes_travel-website-theme', 'theme_addition_details_add_meta_boxes' ,10,1);
 
 /**
  *  meta box markup
