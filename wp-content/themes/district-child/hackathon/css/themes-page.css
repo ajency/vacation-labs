@@ -1225,12 +1225,58 @@
 }
 .bootstrap-content.preview-header .view-switcher {
   padding: 5px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+}
+.bootstrap-content.preview-header .view-switcher .btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.bootstrap-content.preview-header .view-switcher .btn:focus,
+.bootstrap-content.preview-header .view-switcher .btn:active:focus,
+.bootstrap-content.preview-header .view-switcher .btn.active:focus,
+.bootstrap-content.preview-header .view-switcher .btn.focus,
+.bootstrap-content.preview-header .view-switcher .btn:active.focus,
+.bootstrap-content.preview-header .view-switcher .btn.active.focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.bootstrap-content.preview-header .view-switcher .btn:hover,
+.bootstrap-content.preview-header .view-switcher .btn:focus,
+.bootstrap-content.preview-header .view-switcher .btn.focus {
+  color: #333;
+  text-decoration: none;
+}
+.bootstrap-content.preview-header .view-switcher .btn:active,
+.bootstrap-content.preview-header .view-switcher .btn.active {
+  outline: 0;
+  background-image: none;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
 .bootstrap-content.preview-header .view-switcher .btn {
   font-size: 24px;
   color: #00696c;
   background: none;
   border: 1px solid #00696c;
+  padding: 5px 10px;
 }
 .bootstrap-content.preview-header .view-switcher .btn:hover {
   color: #ffffff;
@@ -1244,10 +1290,204 @@
   color: #ffffff;
   background: #00696c;
 }
+.bootstrap-content.preview-header .btn-group,
+.bootstrap-content.preview-header .btn-group-vertical {
+  position: relative;
+  vertical-align: middle;
+}
+.bootstrap-content.preview-header .btn-group > .btn,
+.bootstrap-content.preview-header .btn-group-vertical > .btn {
+  position: relative;
+  float: left;
+}
+.bootstrap-content.preview-header .btn-group > .btn:hover,
+.bootstrap-content.preview-header .btn-group-vertical > .btn:hover,
+.bootstrap-content.preview-header .btn-group > .btn:focus,
+.bootstrap-content.preview-header .btn-group-vertical > .btn:focus,
+.bootstrap-content.preview-header .btn-group > .btn:active,
+.bootstrap-content.preview-header .btn-group-vertical > .btn:active,
+.bootstrap-content.preview-header .btn-group > .btn.active,
+.bootstrap-content.preview-header .btn-group-vertical > .btn.active {
+  z-index: 2;
+}
+.bootstrap-content.preview-header .btn-group .btn + .btn,
+.bootstrap-content.preview-header .btn-group .btn + .btn-group,
+.bootstrap-content.preview-header .btn-group .btn-group + .btn,
+.bootstrap-content.preview-header .btn-group .btn-group + .btn-group {
+  margin-left: -1px;
+}
+.bootstrap-content.preview-header .btn-toolbar {
+  margin-left: -5px;
+}
+.bootstrap-content.preview-header .btn-toolbar .btn,
+.bootstrap-content.preview-header .btn-toolbar .btn-group,
+.bootstrap-content.preview-header .btn-toolbar .input-group {
+  float: left;
+}
+.bootstrap-content.preview-header .btn-toolbar > .btn,
+.bootstrap-content.preview-header .btn-toolbar > .btn-group,
+.bootstrap-content.preview-header .btn-toolbar > .input-group {
+  margin-left: 5px;
+}
+.bootstrap-content.preview-header .btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+  border-radius: 0;
+}
+.bootstrap-content.preview-header .btn-group > .btn:first-child {
+  margin-left: 0;
+}
+.bootstrap-content.preview-header .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.bootstrap-content.preview-header .btn-group > .btn:last-child:not(:first-child),
+.bootstrap-content.preview-header .btn-group > .dropdown-toggle:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.bootstrap-content.preview-header .btn-group > .btn-group {
+  float: left;
+}
+.bootstrap-content.preview-header .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
+  border-radius: 0;
+}
+.bootstrap-content.preview-header .btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child,
+.bootstrap-content.preview-header .btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.bootstrap-content.preview-header .btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.bootstrap-content.preview-header .btn-group .dropdown-toggle:active,
+.bootstrap-content.preview-header .btn-group.open .dropdown-toggle {
+  outline: 0;
+}
+.bootstrap-content.preview-header .btn-group > .btn + .dropdown-toggle {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+.bootstrap-content.preview-header .btn-group > .btn-lg + .dropdown-toggle {
+  padding-right: 12px;
+  padding-left: 12px;
+}
+.bootstrap-content.preview-header .btn-group.open .dropdown-toggle {
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+.bootstrap-content.preview-header .btn-group.open .dropdown-toggle.btn-link {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.bootstrap-content.preview-header .btn .caret {
+  margin-left: 0;
+}
+.bootstrap-content.preview-header .btn-lg .caret {
+  border-width: 5px 5px 0;
+  border-bottom-width: 0;
+}
+.bootstrap-content.preview-header .dropup .btn-lg .caret {
+  border-width: 0 5px 5px;
+}
+.bootstrap-content.preview-header .btn-group-vertical > .btn,
+.bootstrap-content.preview-header .btn-group-vertical > .btn-group,
+.bootstrap-content.preview-header .btn-group-vertical > .btn-group > .btn {
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+}
+.bootstrap-content.preview-header .btn-group-vertical > .btn-group > .btn {
+  float: none;
+}
+.bootstrap-content.preview-header .btn-group-vertical > .btn + .btn,
+.bootstrap-content.preview-header .btn-group-vertical > .btn + .btn-group,
+.bootstrap-content.preview-header .btn-group-vertical > .btn-group + .btn,
+.bootstrap-content.preview-header .btn-group-vertical > .btn-group + .btn-group {
+  margin-top: -1px;
+  margin-left: 0;
+}
+.bootstrap-content.preview-header .btn-group-vertical > .btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+.bootstrap-content.preview-header .btn-group-vertical > .btn:first-child:not(:last-child) {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.bootstrap-content.preview-header .btn-group-vertical > .btn:last-child:not(:first-child) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.bootstrap-content.preview-header .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn {
+  border-radius: 0;
+}
+.bootstrap-content.preview-header .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child,
+.bootstrap-content.preview-header .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.bootstrap-content.preview-header .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.bootstrap-content.preview-header .btn-group-justified {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+}
+.bootstrap-content.preview-header .btn-group-justified > .btn,
+.bootstrap-content.preview-header .btn-group-justified > .btn-group {
+  display: table-cell;
+  float: none;
+  width: 1%;
+}
+.bootstrap-content.preview-header .btn-group-justified > .btn-group .btn {
+  width: 100%;
+}
+.bootstrap-content.preview-header .btn-group-justified > .btn-group .dropdown-menu {
+  left: auto;
+}
+.bootstrap-content.preview-header [data-toggle="buttons"] > .btn input[type="radio"],
+.bootstrap-content.preview-header [data-toggle="buttons"] > .btn-group > .btn input[type="radio"],
+.bootstrap-content.preview-header [data-toggle="buttons"] > .btn input[type="checkbox"],
+.bootstrap-content.preview-header [data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"] {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+}
 .bootstrap-content.pagecontent {
   padding-top: 0;
   background-color: #fff;
   z-index: 99999;
+}
+#viewer {
+  transition: all 0.5s;
+  max-width: 100%;
+  max-height: 100%;
+  border: none;
+  box-shadow: 0 0 80px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+#viewer.mobile {
+  width: 375px;
+  height: 667px;
+}
+#viewer.tablet {
+  width: 768px;
+  height: 1024px;
+}
+#viewer.desktop {
+  width: 100%;
+  height: 840px;
+}
+.preview-holder {
+  display: flex;
+  justify-content: center;
 }
 .theme-card .imgwrapper {
   position: relative;

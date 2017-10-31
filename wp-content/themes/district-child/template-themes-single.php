@@ -33,16 +33,19 @@ $theme_url=get_post_meta($post_id,'_theme_url',true);
             <div class="col-md-4">
                 <div class="row" style="margin-bottom: 0;">
                     <div class="col-md-7 visible-md-block visible-lg-block">
-                        <div class="btn-group view-switcher">
-                            <a class="btn btn-default desktop-btn active" href="#">
+                        <div class="btn-group view-switcher" data-toggle="buttons">
+                            <label class="btn btn-default desktop-btn active" id="Desktop">
+                                <input type="radio" name="preview" id="Desktop" checked="" value="desktop">
                                 <i class="fa fa-desktop" title="Desktop preview"></i>
-                            </a>
-                            <a class="btn btn-default tablet-btn" href="#">
+                            </label>
+                            <label class="btn btn-default tablet-btn" id="Tablet">
+                                <input type="radio" name="preview" id="Tablet" value="tablet">
                                 <i class="fa fa-tablet" title="Tablet preview"></i>
-                            </a>
-                            <a class="btn btn-default mobile-btn" href="#">
+                            </label>
+                            <label class="btn btn-default mobile-btn" id="Mobile">
+                                <input type="radio" name="preview" id="Mobile"" value="mobile">
                                 <i class="fa fa-mobile" title="Mobile preview"></i>
-                            </a>
+                            </label>
                         </div>
                     </div>
 
@@ -57,8 +60,8 @@ $theme_url=get_post_meta($post_id,'_theme_url',true);
     </div>
 </div>
 
-<div style="height: 80vh;">
-    <iframe src="<?php echo $theme_url;?>" frameborder="0" style="overflow: hidden; height: 100%;" width="100%;" height="100%"></iframe>
+<div class="preview-holder">
+    <iframe src="<?php echo $theme_url;?>" frameborder="0" style="overflow: hidden;" width="100%;" height="100%" id="viewer" class="desktop"></iframe>
 </div>
 
 <style type="text/css">
@@ -66,6 +69,25 @@ $theme_url=get_post_meta($post_id,'_theme_url',true);
         display: none;
     }
 </style>
+
+<script type="text/javascript">
+    jQuery('body').on('change', '[name="preview"]', function() {
+        if (jQuery(this).is(':checked')){
+            jQuery(this).parent().addClass('active')
+            jQuery(this).parent().siblings().removeClass('active')
+        }
+        if (jQuery('input[name="preview"]:checked').val() == 'mobile'){
+            jQuery('#viewer').addClass('mobile');
+            jQuery('#viewer').removeClass('desktop tablet');
+        } else if (jQuery('input[name="preview"]:checked').val() == 'tablet'){
+            jQuery('#viewer').addClass('tablet');
+            jQuery('#viewer').removeClass('desktop mobile');
+        } else {
+            jQuery('#viewer').addClass('desktop');
+            jQuery('#viewer').removeClass('tablet mobile');
+        }
+    });
+</script>
 
 <?php
 
