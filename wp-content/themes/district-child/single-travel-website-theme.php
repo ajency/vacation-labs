@@ -91,7 +91,6 @@ $theme_url=get_post_meta($post_id,'_theme_url',true);
     });
 </script>
 
-
 <?php
 
 /* Get Footer
