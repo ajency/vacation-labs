@@ -6,6 +6,20 @@ function templateThemeListing($query){
     $sort_label=array('recent' => 'Recent','popular'=>'Popularity','title'=>'Name')
 
 ?>
+
+    <div class="section center dark nocontent nopadding" style="background-color: #526670;">
+        <div class="container">
+            <div class="fourteen columns offset-by-one content">
+                <h2>Website Themes Optimized for Travel</h2>
+                <p class="p1" style="font-size: 1.2em;font-weight: 300;font-family: 'Lato'">
+                    <span style="color: #ffffff"> Fully responsive, customizable themes to match your brand &amp; boost your business</span>
+                </p>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
     <div class="pagecontent bootstrap-content">
         <div class="container-fluid">
             <div class="row visible-md visible-sm visible-lg" style="background-color: #fafafa;padding-top: 15px; box-shadow: 1px 1px 5px 0 rgba(171, 166, 166, 0.5);">
@@ -125,7 +139,7 @@ function templateThemeListing($query){
                                      <img class="img-responsive image actl-img" src="<?php echo $featured_img;?>" alt="<? echo $theme_name; ?>">
                                     <div class="overlay">
                                         <div class="text">
-                                            <a class="button" href="<?php echo  $post_link; ?>" rel="nofollow" target="_self"><span class="ag-button-inner">Preview</span></a><br>
+                                            <a class="button" href="<?php echo  $post_link; ?>" rel="nofollow" target="_blank"><span class="ag-button-inner">Preview</span></a><br>
                                             <a class="button transparent" href="#" rel="nofollow" target="_self"><span class="ag-button-inner">Select</span></a>
                                         </div>
                                     </div>
