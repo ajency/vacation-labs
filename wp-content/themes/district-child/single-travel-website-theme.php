@@ -67,7 +67,8 @@ $theme_url=get_post_meta($post_id,'_theme_url',true);
 </div>
 
 <style type="text/css">
-    .page-template-template-themes-single .top-nav{
+    .page-template-template-themes-single .top-nav,
+    .single-travel-website-theme .top-nav{
         display: none;
     }
 </style>

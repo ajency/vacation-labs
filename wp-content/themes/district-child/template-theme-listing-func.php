@@ -7,7 +7,7 @@ function templateThemeListing($query){
 
 ?>
 
-    <div class="section center dark nocontent nopadding" style="background-color: #526670;">
+    <div class="section center dark nocontent nopadding section-themes" style="background-color: #526670;">
         <div class="container">
             <div class="fourteen columns offset-by-one content">
                 <h2>Website Themes Optimized for Travel</h2>
