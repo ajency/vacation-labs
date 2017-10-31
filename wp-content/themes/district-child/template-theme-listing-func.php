@@ -120,7 +120,8 @@ function templateThemeListing($query){
                     $popularity=get_post_meta($post_id,'_popularity',true);
                     $premium=get_post_meta($post_id,'_premium',true);
                     $description=$website_themes_val->post_excerpt;
-                    $featured_img= wp_get_attachment_url(get_post_thumbnail_id($post_id, '_thumbnail'));
+                    // $featured_img= wp_get_attachment_url(get_post_thumbnail_id($post_id, '_thumbnail'));
+                    $featured_img= wp_get_attachment_image_src(get_post_thumbnail_id($post_id, '_thumbnail'),'large')[0];
 
                     $post_categories=get_the_terms($post_id,'travel-website-themes');
                     $post_link= get_post_permalink( $post_id, false, false );
