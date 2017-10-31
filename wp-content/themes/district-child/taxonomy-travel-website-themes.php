@@ -42,7 +42,7 @@ if ($_REQUEST['order_by'] == 'title') {
     //based on popularity
     $args = array(
         'post_type'      => 'travel-website-theme',
-        'posts_per_page' => 1,
+        'posts_per_page' => 4,
         'orderby'        => 'meta_value_num',
         'meta_key'       => '_popularity',
          'paged'          => $paged,
