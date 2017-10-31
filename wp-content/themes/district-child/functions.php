@@ -209,10 +209,10 @@ function vacationlab_pre_get_posts( $query )
       // echo "<pre>";
       // print_r($query);
       
-   // if ( $query->is_tax() || $query->is_category() || $query->query['post_type']='travel-website-theme' ) {
+   if ( $query->is_tax() || $query->is_category()) {
         $query->set( 'post_type', 'travel-website-theme' );
         $query->set( 'posts_per_page', 1 );
-    //}
+    }
     return $query;
 }
 
