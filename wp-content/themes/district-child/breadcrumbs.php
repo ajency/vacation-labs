@@ -5,7 +5,7 @@
 function vacationLabBreadcrumbs()
 {
     /* === OPTIONS === */
-    $text['home']     = 'All Templates'; // text for the 'Home' link
+    $text['home']     = 'Home'; // text for the 'Home' link
     $text['category'] = '%s'; // text for a category page
     $text['search']   = 'Search Results for "%s" Query'; // text for a search results page
     $text['tag']      = 'Posts Tagged "%s"'; // text for a tag page

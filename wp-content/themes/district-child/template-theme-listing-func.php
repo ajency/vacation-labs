@@ -124,7 +124,7 @@ function templateThemeListing($query){
                                      <img class="img-responsive image actl-img" src="<?php echo $featured_img;?>">
                                     <div class="overlay">
                                         <div class="text">
-                                            <a class="button" href="./preview?id=<?echo $post_id;?>" rel="nofollow" target="_self"><span class="ag-button-inner">Preview</span></a><br>
+                                            <a class="button" href="<? echo get_post_permalink( $post_id, false, false );?>" rel="nofollow" target="_self"><span class="ag-button-inner">Preview</span></a><br>
                                             <a class="button transparent" href="#" rel="nofollow" target="_self"><span class="ag-button-inner">Select</span></a>
                                         </div>
                                     </div>

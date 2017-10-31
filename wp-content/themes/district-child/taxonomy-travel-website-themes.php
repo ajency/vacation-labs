@@ -12,7 +12,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 if ($_REQUEST['order_by'] == 'title') {
     $args = array(
-        'post_type'      => 'website_theme',
+        'post_type'      => 'travel-website-theme',
         'posts_per_page' => 4,
         'paged'          => $paged,
         'orderby'        => 'title',
@@ -27,7 +27,7 @@ if ($_REQUEST['order_by'] == 'title') {
     );
 } else if ($_REQUEST['order_by'] == 'recent') {
     $args = array(
-        'post_type'      => 'website_theme',
+        'post_type'      => 'travel-website-theme',
         'posts_per_page' => 4,
         'paged'          => $paged,
         'tax_query' => array(
@@ -41,10 +41,11 @@ if ($_REQUEST['order_by'] == 'title') {
 } else {
     //based on popularity
     $args = array(
-        'post_type'      => 'website_theme',
-        'posts_per_page' => 4,
+        'post_type'      => 'travel-website-theme',
+        'posts_per_page' => 1,
         'orderby'        => 'meta_value_num',
         'meta_key'       => '_popularity',
+         'paged'          => $paged,
         'tax_query' => array(
           array(
             'taxonomy' => 'travel-website-themes',

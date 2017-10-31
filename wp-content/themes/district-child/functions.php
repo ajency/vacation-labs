@@ -107,10 +107,10 @@ if ( ! function_exists('website_themes') ) {
 function website_themes() {
 
   $labels = array(
-    'name'                  => _x( 'website themes', 'Post Type General Name', 'text_domain' ),
-    'singular_name'         => _x( 'website theme', 'Post Type Singular Name', 'text_domain' ),
-    'menu_name'             => __( 'Website Themes', 'text_domain' ),
-    'name_admin_bar'        => __( 'Website Themes', 'text_domain' ),
+    'name'                  => _x( 'Travel website themes', 'Post Type General Name', 'text_domain' ),
+    'singular_name'         => _x( 'Travel website theme', 'Post Type Singular Name', 'text_domain' ),
+    'menu_name'             => __( 'Travel Website Themes', 'text_domain' ),
+    'name_admin_bar'        => __( 'Travel Website Themes', 'text_domain' ),
     'archives'              => __( 'Item Archives', 'text_domain' ),
     'attributes'            => __( 'Item Attributes', 'text_domain' ),
     'parent_item_colon'     => __( 'Parent Item:', 'text_domain' ),
@@ -136,8 +136,8 @@ function website_themes() {
     'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
   );
   $args = array(
-    'label'                 => __( 'website theme', 'text_domain' ),
-    'description'           => __( 'website themes', 'text_domain' ),
+    'label'                 => __( 'travel website theme', 'text_domain' ),
+    'description'           => __( 'travel website themes', 'text_domain' ),
     'labels'                => $labels,
     'supports'              => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail','custom-fields', 'post-formats', ),
     'taxonomies'            => array( 'travel-website-themes' ),
@@ -154,7 +154,7 @@ function website_themes() {
     'publicly_queryable'    => true,
     'capability_type'       => 'post',
   );
-  register_post_type( 'website_theme', $args );
+  register_post_type( 'travel-website-theme', $args );
 
 }
 add_action( 'init', 'website_themes', 0 );
@@ -164,10 +164,10 @@ add_action( 'init', 'build_taxonomies', 0 );
 function build_taxonomies() {
     register_taxonomy(
     'travel-website-themes',
-    'website_theme',  // this is the custom post type(s) I want to use this taxonomy for
+    'travel-website-theme',  // this is the custom post type(s) I want to use this taxonomy for
     array(
         'hierarchical' => true,
-        'label' => 'Theme Categories',
+        'label' => 'Categories',
         'query_var' => true,
         'rewrite' => array('hierarchical' =>true,  'with_front' => false)
     )
@@ -203,13 +203,16 @@ function hierarchical_category_tree( $cat ) {
 add_action( 'pre_get_posts', 'vacationlab_pre_get_posts' );
 function vacationlab_pre_get_posts( $query )
 {
-    if ( ! $query->is_main_query() || $query->is_admin() )
-        return false;
 
-    if ( $query->is_tax() || $query->is_category() ) {
-        $query->set( 'post_type', 'website_theme' );
+    if ( ! $query->is_main_query() || $query->is_admin() )
+      return false;
+      // echo "<pre>";
+      // print_r($query);
+      
+   // if ( $query->is_tax() || $query->is_category() || $query->query['post_type']='travel-website-theme' ) {
+        $query->set( 'post_type', 'travel-website-theme' );
         $query->set( 'posts_per_page', 1 );
-    }
+    //}
     return $query;
 }
 
@@ -218,7 +221,7 @@ function vacationlab_pre_get_posts( $query )
  */
 function theme_addition_details_add_meta_boxes( $post ){
 
-  add_meta_box( 'theme_detail_meta_box', __( 'Theme Details', 'website_theme_example_plugin' ), 'website_theme_build_meta_box', 'website_theme', 'normal', 'high' );
+  add_meta_box( 'theme_detail_meta_box', __( 'Theme Details', 'website_theme_example_plugin' ), 'website_theme_build_meta_box', 'travel-website-theme', 'normal', 'high' );
 }
 
 add_action( 'add_meta_boxes_website_theme', 'theme_addition_details_add_meta_boxes' ,10,1);
@@ -229,7 +232,7 @@ add_action( 'add_meta_boxes_website_theme', 'theme_addition_details_add_meta_box
 function website_theme_build_meta_box(){
   $post_id = get_the_ID();
 
-    if (get_post_type($post_id) != 'website_theme') {
+    if (get_post_type($post_id) != 'travel-website-theme') {
         return;
     }
 
@@ -259,7 +262,7 @@ function website_theme_build_meta_box(){
  */
 function save_website_theme_build_meta_box( $post_id){
   if(isset($_REQUEST['post_type'])){
-    if($_REQUEST['post_type']=='website_theme'){
+    if($_REQUEST['post_type']=='travel-website-theme'){
 
        $_popularity = ($_REQUEST['_popularity']!='')? $_REQUEST['_popularity'] : 0 ;
         update_post_meta( $post_id, '_popularity', $_popularity);
@@ -287,12 +290,21 @@ add_action('save_post', 'save_website_theme_build_meta_box');
  */
 add_filter( 'wp_terms_checklist_args', 'checked_not_ontop', 1, 2 );
 function checked_not_ontop( $args, $post_id ) {
-    if ( 'website_theme' == get_post_type( $post_id ) && $args['taxonomy'] == 'travel-website-themes' )
+    if ( 'travel-website-theme' == get_post_type( $post_id ) && $args['taxonomy'] == 'travel-website-themes' )
         $args['checked_ontop'] = false;
 
     return $args;
 }
 
+
+/* add_filter( 'posts_request', 'dump_request' );
+
+function dump_request( $input ) {
+    echo "sairaj";
+    var_dump($input);
+
+    return $input;
+}*/
 
 include 'template-theme-listing-func.php';
 include 'breadcrumbs.php';
