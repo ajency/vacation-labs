@@ -68,9 +68,9 @@ function templateThemeListing($query,$args=array()){
                     </div>
                     <div class="arrow"></div>
                     <ul id="" class="hide popover-content">
-                        <li><a href="#" class="sortby-dropdwn">Most Popular</a></li>
-                        <li><a href="#" class="sortby-dropdwn">Most Recent</a></li>
-                        <li><a href="#" class="sortby-dropdwn">Name <span>(Alphabetical)</span></a></li>
+                        <li><a href="?order_by=popular" class="sortby-dropdwn" title="Popularity">Popularity</a></li>
+                        <li><a href="?order_by=recent" class="sortby-dropdwn" title="Recent">Recent</a></li>
+                        <li><a href="?order_by=title" class="sortby-dropdwn" title="Name">Name</a></li>
                     </ul>
                 </div>
             </div>
@@ -149,7 +149,7 @@ function templateThemeListing($query,$args=array()){
                                 </div>
 
                                 <h2 class="theme_name">
-                                    <a href="<?php echo  $post_link; ?>"><?php echo $theme_name; ?></a>
+                                    <a href="<?php echo  $post_link; ?>" title="<?php echo $theme_name; ?>"><?php echo $theme_name; ?></a>
                                 </h2>
 
                                 <h3 class="author">
@@ -167,7 +167,7 @@ function templateThemeListing($query,$args=array()){
                                       if($cvalue->parent!=0){
 
                                   ?>
-                                        <span class="badge first"><a href="<?php echo get_category_link( $cvalue->term_id ) ?>" ><?php echo $cvalue->name; ?></a></span>
+                                        <span class="badge first"><a href="<?php echo get_category_link( $cvalue->term_id ) ?>" title="<?php echo $cvalue->name; ?>"><?php echo $cvalue->name; ?></a></span>
                                     <?php
                                       }
                                     }

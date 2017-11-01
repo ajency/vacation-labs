@@ -18,13 +18,13 @@ $theme_url=get_post_meta($post_id,'_theme_url',true);
         <div class="row">
             <div class="col-md-1 text-right go-back">
                 <a href="/travel-website-theme">
-                    <img alt="Go Back" src="http://akdesign.in/dev/vacationlabs/img/back_arrow.png">
+                    <img alt="Go Back" src="<?php echo get_stylesheet_directory_uri(); ?>/hackathon/images/back_arrow.png">
                 </a>
             </div>
 
             <div class="col-sm-12 col-md-3 logo" style="filter: brightness(0) invert(1);">
-                <a href="#">
-                    <img alt="Vacation Labs" src="http://www.vacationlabs.com/wp-content/uploads/2013/01/logo-250x291.png">
+                <a href="<?php echo get_home_url(); ?>">
+                    <img alt="Vacation Labs" src="<?php echo get_stylesheet_directory_uri(); ?>/hackathon/images/logo-250x291.png">
                 </a>
             </div>
 
