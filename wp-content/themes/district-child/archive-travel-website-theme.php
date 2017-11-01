@@ -1,6 +1,6 @@
 <?php
 
-get_header();
+ echo get_template_part('travel-website-header');
 
 //sorting  code start
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
