@@ -24,10 +24,11 @@ function vacationLabBreadcrumbs()
     $show_current   = 1; // 1 - show current page title, 0 - don't show
     $before         = '<span class="current">'; // tag before the current crumb
     $after          = '</span>'; // tag after the current crumb
+    $travel_theme   = '<a href="'.home_url('travel-website-theme').'" itemprop="item"><span itemprop="name">Travel website themes</span></a>';
     /* === END OF OPTIONS === */
 
     global $post;
-    $home_url       = home_url('/travel-website-theme');
+    $home_url       = home_url('');
     $link_before    = '<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">';
     $link_after     = '</span>';
     $link_attr      = ' itemprop="item"';
@@ -79,6 +80,9 @@ function vacationLabBreadcrumbs()
 
          else if (is_tax()) {
            $cat = get_queried_object();
+            echo $sep;
+            echo $travel_theme;
+                  
             if ($cat->parent != 0) {
                 $cats = get_category_parents($cat->parent, true, $sep);
                 $cats = preg_replace("#^(.+)$sep$#", "$1", $cats);
