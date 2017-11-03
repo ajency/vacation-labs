@@ -240,6 +240,7 @@ function website_theme_build_meta_box(){
     $_popularity = get_post_meta($post_id, '_popularity', true);
     $_theme_by = get_post_meta($post_id, '_theme_by', true);
     $_theme_url = get_post_meta($post_id, '_theme_url', true);
+    $_select_url = get_post_meta($post_id, '_select_url', true);
     $_premium = get_post_meta($post_id, '_premium', true);
     wp_nonce_field('premium_nonce_nonce_'.$post_id, 'premium_nonce');
     ?>
@@ -247,6 +248,7 @@ function website_theme_build_meta_box(){
         <label><?php _e('Popularity: '); ?><input type="number" value="<?php echo  $_popularity;?>" name="_popularity" /></label>
         <label><?php _e('Theme By: '); ?><input type="text" value="<?php echo  $_theme_by;?> " name="_theme_by" /></label>
         <label><?php _e('Theme Url: '); ?><input type="text" value="<?php echo  $_theme_url;?>" name="_theme_url" /></label>
+        <label><?php _e('Select Url: '); ?><input type="text" value="<?php echo  $_select_url;?>" name="_select_url" /></label>
     </div>
     <div class="misc-pub-section misc-pub-section-last">
         <label><input type="checkbox" value="1" <?php checked($_premium, true, true); ?> name="_premium" /><?php _e('Premium'); ?></label>
@@ -274,6 +276,9 @@ function save_website_theme_build_meta_box( $post_id){
 
       if(isset($_REQUEST['_theme_url'])){
         update_post_meta( $post_id, '_theme_url',$_REQUEST['_theme_url']);
+      }
+      if(isset($_REQUEST['_select_url'])){
+        update_post_meta( $post_id, '_select_url',$_REQUEST['_select_url']);
       }
       if(isset($_REQUEST['_premium'])){
             update_post_meta( $post_id, '_premium',$_REQUEST['_premium']);

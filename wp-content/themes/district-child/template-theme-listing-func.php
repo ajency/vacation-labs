@@ -119,6 +119,7 @@ function templateThemeListing($query,$args=array()){
                     $theme_name= $website_themes_val->post_title;
                     $theme_by=get_post_meta($post_id,'_theme_by',true);
                     $theme_url=get_post_meta($post_id,'_theme_url',true);
+                    $select_url=get_post_meta($post_id,'_select_url',true);
                     $popularity=get_post_meta($post_id,'_popularity',true);
                     $premium=get_post_meta($post_id,'_premium',true);
                     $description=$website_themes_val->post_excerpt;
@@ -143,7 +144,7 @@ function templateThemeListing($query,$args=array()){
                                     <div class="overlay">
                                         <div class="text">
                                             <a class="button" href="<?php echo  $post_link; ?>" rel="nofollow" target="_blank"><span class="ag-button-inner">Preview</span></a><br>
-                                            <a class="button transparent" href="#" rel="nofollow" target="_self"><span class="ag-button-inner">Select</span></a>
+                                            <a class="button transparent" href="<?php echo  $select_url; ?>" rel="nofollow" target="_self"><span class="ag-button-inner">Select</span></a>
                                         </div>
                                     </div>
                                 </div>
