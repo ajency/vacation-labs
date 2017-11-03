@@ -9,6 +9,7 @@ global $post;
 $post_id=$post->ID;
 
 $theme_url=get_post_meta($post_id,'_theme_url',true);
+$select_url=get_post_meta($post_id,'_select_url',true);
 
 ?>
 
@@ -52,7 +53,7 @@ $theme_url=get_post_meta($post_id,'_theme_url',true);
                     </div>
 
                     <div class="col-md-5">
-                        <a class="button center-block" href="#" rel="nofollow" style="width: 115px; display: block; margin:0.8em auto; background:white; color:#006ca9; padding:0 12px;line-height: 40px;font-size:18px;letter-spacing:0.6px" target="_self">
+                        <a class="button center-block" href="<?php echo  $select_url; ?>" rel="nofollow" style="width: 115px; display: block; margin:0.8em auto; background:white; color:#006ca9; padding:0 12px;line-height: 40px;font-size:18px;letter-spacing:0.6px" target="_self">
                             <span class="ag-button-inner">Select →</span>
                         </a>
                     </div>

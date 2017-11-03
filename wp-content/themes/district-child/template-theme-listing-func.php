@@ -221,9 +221,9 @@ function templateThemeListing($query,$args=array()){
                 <div class="container-fluid mob-filter-headr">
                     <div style="padding: 0.8em 0;">
                         <div class="row filter-text">
-                            <div class="col-sm-4 col-xs-4" style="text-align: left;"></div>
-                            <div class="col-sm-4 col-xs-4" style="text-align: center; font-weight: bold;">Filters</div>
-                            <div class="col-sm-4 col-xs-4" style="text-align: right;"><a href="#">Close</a></div>
+                            <div class="col-sm-4 col-xs-2" style="text-align: left;"></div>
+                            <div class="col-sm-4 col-xs-8" style="text-align: center; font-weight: bold;">Select Category</div>
+                            <div class="col-sm-4 col-xs-2" style="text-align: right;"><a href="#">Close</a></div>
                         </div>
                     </div>
                 </div>
