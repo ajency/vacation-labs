@@ -298,6 +298,52 @@ function checked_not_ontop( $args, $post_id ) {
 }
 
 
+//add custom taxomony field method
+add_action( 'travel-website-themes_add_form_fields', 'ajency_taxonomy_add_new_meta_field', 10, 2 );
+function ajency_taxonomy_add_new_meta_field() {
+  ?>
+  <div class="form-field">
+    <label for="term_meta[vl_title]"><?php _e( 'Category Title'); ?></label>
+    <input type="text" name="term_meta[vl_title]" id="term_meta[vl_title]" value="">
+    <p class="description"><?php _e( 'The Title is how it appears on your site'); ?></p>
+  </div>
+<?php
+}
+
+
+// Save extra taxonomy fields callback function.
+function save_taxonomy_custom_meta( $term_id ) {
+  if ( isset( $_POST['term_meta'] ) ) {
+    $t_id = $term_id;
+    $term_meta = get_option( "taxonomy_$t_id" );
+    $cat_keys = array_keys( $_POST['term_meta'] );
+    foreach ( $cat_keys as $key ) {
+      if ( isset ( $_POST['term_meta'][$key] ) ) {
+        $term_meta[$key] = $_POST['term_meta'][$key];
+      }
+    }
+    update_option( "taxonomy_$t_id", $term_meta );
+  }
+}  
+add_action( 'edited_travel-website-themes', 'save_taxonomy_custom_meta', 10, 2 );  
+add_action( 'create_travel-website-themes', 'save_taxonomy_custom_meta', 10, 2 );
+
+//edit custom taxomony field method
+function ajency_taxonomy_edit_meta_field($term) {
+ 
+  $t_id = $term->term_id;
+  $term_meta = get_option( "taxonomy_$t_id" ); ?>
+  <tr class="form-field">
+  <th scope="row" valign="top"><label for="term_meta[vl_title]"><?php _e( 'Category Title' ); ?></label></th>
+    <td>
+      <input type="text" name="term_meta[vl_title]" id="term_meta[vl_title]" value="<?php echo esc_attr( $term_meta['vl_title'] ) ? esc_attr( $term_meta['vl_title'] ) : ''; ?>">
+      <p class="description"><?php _e( 'The Title is how it appears on your site' ); ?></p>
+    </td>
+  </tr>
+<?php
+}
+add_action( 'travel-website-themes_edit_form_fields', 'ajency_taxonomy_edit_meta_field', 10, 2 );
+
 /* add_filter( 'posts_request', 'dump_request' );
 
 function dump_request( $input ) {

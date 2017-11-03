@@ -196,7 +196,8 @@ function templateThemeListing($query,$args=array()){
                         $current_page = max(1, get_query_var('paged'));
 
                         echo paginate_links(array(
-                            'base' => get_pagenum_link(1) . '%_%',
+                            // 'base' => get_pagenum_link(1) . '%_%',
+                             'base' => preg_replace('/\?.*/', '/', get_pagenum_link(1)) . '%_%',
                             'format' => '/page/%#%',
                             'current' => $current_page,
                             'total' => $total_pages,

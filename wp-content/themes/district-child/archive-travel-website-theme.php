@@ -1,13 +1,13 @@
 <?php
 
  echo get_template_part('travel-website-header');
-
+$posts_per_page=6;
 //sorting  code start
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 if ($_REQUEST['order_by'] == 'title') {
     $args = array(
         'post_type'      => 'travel-website-theme',
-        'posts_per_page' => 4,
+        'posts_per_page' => $posts_per_page,
         'paged'          => $paged,
         'orderby'        => 'title',
         'order'          => 'ASC',
@@ -15,14 +15,14 @@ if ($_REQUEST['order_by'] == 'title') {
 } else if ($_REQUEST['order_by'] == 'recent') {
     $args = array(
         'post_type'      => 'travel-website-theme',
-        'posts_per_page' => 4,
+        'posts_per_page' => $posts_per_page,
         'paged'          => $paged,
     );
 } else {
     //based on popularity
     $args = array(
         'post_type'      => 'travel-website-theme',
-        'posts_per_page' => 4,
+        'posts_per_page' => $posts_per_page,
         'orderby'        => 'meta_value_num',
         'meta_key'       => '_popularity',
         'paged'          => $paged,
