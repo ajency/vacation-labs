@@ -1460,6 +1460,26 @@
   clip: rect(0, 0, 0, 0);
   pointer-events: none;
 }
+@media (max-width: 996px) {
+  .bootstrap-content.preview-header .go-back {
+    text-align: left;
+    position: absolute;
+  }
+  .bootstrap-content.preview-header .logo {
+    margin-top: 30px;
+    text-align: center;
+  }
+  .bootstrap-content.preview-header .logo img {
+    width: 200px;
+  }
+  .bootstrap-content.preview-header .preview-title {
+    line-height: 60px !important;
+    text-align: center;
+  }
+  .bootstrap-content.preview-header .preview-title h1 {
+    line-height: 1.1;
+  }
+}
 .bootstrap-content.pagecontent {
   padding-top: 0;
   background-color: #fff;
