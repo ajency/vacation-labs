@@ -55,7 +55,7 @@ function templateThemeListing($query,$args=array()){
 
                     <a href="./filter.html" style="text-decoration: none !important;">
                         <div class="filter-icon"></div>
-                        <span style="font-size: 14px; color:rgb(119,119,119); font-weight: 500;">Filter</span>
+                        <span style="font-size: 14px; color:rgb(119,119,119); font-weight: 500;">Categories</span>
                         <!-- <span class="badge">5</span> -->
                     </a>
 
