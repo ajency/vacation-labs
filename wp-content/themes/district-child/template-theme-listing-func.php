@@ -91,13 +91,13 @@ function templateThemeListing($query,$args=array()){
             </div>
 
             <div class="col-md-9 col-xs-12 col-sm-8 main-cntent" style="padding-right: 6%;">
-                <div class="row" style="margin-top:30px;">
+                <div class="row row-eq-height" style="margin-top:30px;">
                     <div class="col-sm-12 col-xs-12 visible-xs">
 
                         <ol class="breadcrumb">
                              <?php
-                     vacationLabBreadcrumbs();
-                  ?>
+                                 vacationLabBreadcrumbs();
+                              ?>
                             <!-- <li class="breadcrumb-item">
                                 <a href="#">All Templates</a>
                             </li>
@@ -147,6 +147,8 @@ function templateThemeListing($query,$args=array()){
                                             <a class="button transparent" href="<?php echo  $select_url; ?>" rel="nofollow" target="_self"><span class="ag-button-inner">Select</span></a>
                                         </div>
                                     </div>
+
+                                    <a href="<?php echo  $post_link; ?>" class="visible-xs mobile-card-link"></a>
                                 </div>
 
                                 <h2 class="theme_name">

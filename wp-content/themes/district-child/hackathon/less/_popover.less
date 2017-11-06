@@ -11,7 +11,7 @@
 			display: block;
 			position: absolute;
 			top: 30px;
-			left: 10px;
+			left: 45px;
 			background: #fff;
 			list-style-type: none;
 			z-index: 1;
@@ -46,7 +46,7 @@
 		    	margin: 0;
 		    	line-height: 1.2em;
 		    	a{
-		    		padding: 5px 10px;
+		    		padding: 5px 15px;
 		    		display: block;
 		    		color: #656565;
 	    		    font-size: 14px;
@@ -70,17 +70,19 @@
 		}
 		&>.arrow{
 			border-width: 11px;
-			top: 19px;
-			left: 50%;
+			top: 20px;
+			left: 115px;
 			margin-left: -32px;
 			border-top-width: 0;
 			border-bottom-color: #999;
-			border-bottom-color: rgba(132, 132, 132, 0.25);
+			border-bottom-color: rgba(0,0,0,.25);
+			z-index: 2;
 		}
 		&>.arrow:after{
 			top: 1px;
 		    margin-left: -10px;
 		    content: " ";
+		    border-width: 10px;
 		    border-top-width: 0;
 		    border-bottom-color: #fff;
 		}
@@ -90,8 +92,21 @@
 				top: 40px;
 			}
 			&>.arrow{
-				top: 29px;
+				top: 30px;
 			}
 		}
+	}
+
+	i {
+	    border: solid black;
+	    border-width: 0 3px 3px 0;
+	    display: inline-block;
+	    padding: 3px;
+	}
+	.down {
+	    transform: rotate(45deg);
+	    -webkit-transform: rotate(45deg);
+	    margin-bottom: 1px;
+	    margin-left: 5px;
 	}
 }

@@ -16,6 +16,13 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+.bootstrap-content .row.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
 .bootstrap-content .col-xs-1,
 .bootstrap-content .col-sm-1,
 .bootstrap-content .col-md-1,
@@ -1116,7 +1123,7 @@
   display: block;
   position: absolute;
   top: 30px;
-  left: 10px;
+  left: 45px;
   background: #fff;
   list-style-type: none;
   z-index: 1;
@@ -1151,7 +1158,7 @@
   line-height: 1.2em;
 }
 .bootstrap-content .popover-holder.active .popover-content li a {
-  padding: 5px 10px;
+  padding: 5px 15px;
   display: block;
   color: #656565;
   font-size: 14px;
@@ -1174,17 +1181,19 @@
 }
 .bootstrap-content .popover-holder.active > .arrow {
   border-width: 11px;
-  top: 19px;
-  left: 50%;
+  top: 20px;
+  left: 115px;
   margin-left: -32px;
   border-top-width: 0;
   border-bottom-color: #999;
-  border-bottom-color: rgba(132, 132, 132, 0.25);
+  border-bottom-color: rgba(0, 0, 0, 0.25);
+  z-index: 2;
 }
 .bootstrap-content .popover-holder.active > .arrow:after {
   top: 1px;
   margin-left: -10px;
   content: " ";
+  border-width: 10px;
   border-top-width: 0;
   border-bottom-color: #fff;
 }
@@ -1193,8 +1202,20 @@
     top: 40px;
   }
   .bootstrap-content .popover-holder.active > .arrow {
-    top: 29px;
+    top: 30px;
   }
+}
+.bootstrap-content .popover-holder i {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+.bootstrap-content .popover-holder .down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  margin-bottom: 1px;
+  margin-left: 5px;
 }
 .bootstrap-content.preview-header {
   background-color: #006DB1;
@@ -1635,13 +1656,15 @@
 }
 .theme-card .theme_name {
   font-size: 16px !important;
-  color: #2993b5;
   font-weight: 600;
   display: flex;
   margin-left: 4%;
   text-align: center;
   line-height: 1.5em;
   margin-bottom: 5px !important;
+}
+.theme-card .theme_name a {
+  color: #2993b5;
 }
 .theme-card .author {
   color: #555;
@@ -1671,11 +1694,20 @@
   font-size: 12px;
   font-weight: 600;
   line-height: 1;
-  color: #41403B;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
   background-color: #E0E0E0;
   border-radius: 15px;
   font-style: normal;
+}
+.theme-card .badge a {
+  color: #41403B;
+}
+.theme-card .mobile-card-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
