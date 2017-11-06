@@ -35,7 +35,7 @@ $select_url=get_post_meta($post_id,'_select_url',true);
 
             <div class="col-md-4">
                 <div class="row" style="margin-bottom: 0;">
-                    <div class="col-md-7 visible-md-block visible-lg-block">
+                    <div class="col-md-5 visible-md-block visible-lg-block">
                         <div class="btn-group view-switcher" data-toggle="buttons">
                             <label class="btn btn-default desktop-btn active" id="Desktop">
                                 <input type="radio" name="preview" id="Desktop" checked="" value="desktop">
@@ -52,9 +52,9 @@ $select_url=get_post_meta($post_id,'_select_url',true);
                         </div>
                     </div>
 
-                    <div class="col-md-5">
-                        <a class="button center-block" href="<?php echo  $select_url; ?>" rel="nofollow" style="width: 115px; display: block; margin:0.8em auto; background:white; color:#006ca9; padding:0 12px;line-height: 40px;font-size:18px;letter-spacing:0.6px" target="_self">
-                            <span class="ag-button-inner">Select →</span>
+                    <div class="col-md-7">
+                        <a class="button center-block" href="<?php echo  $select_url; ?>" rel="nofollow" style="width: 200px; display: block; margin:0.8em auto; background:white; color:#006ca9; padding:0 12px;line-height: 40px;font-size:18px;letter-spacing:0.6px" target="_self">
+                            <span class="ag-button-inner">Select &amp; Sign Up→</span>
                         </a>
                     </div>
                 </div>
