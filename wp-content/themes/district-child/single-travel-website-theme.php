@@ -18,7 +18,7 @@ $select_url=get_post_meta($post_id,'_select_url',true);
     <div class="container-fluid">
         <div class="row" style="margin-bottom:0;">
             <div class="col-md-1 text-right go-back">
-                <a href="/travel-website-theme">
+                <a href="/travel-website-templates">
                     <img alt="Go Back" src="<?php echo get_stylesheet_directory_uri(); ?>/hackathon/images/back_arrow.png">
                 </a>
             </div>

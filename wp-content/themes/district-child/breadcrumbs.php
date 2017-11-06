@@ -5,7 +5,7 @@
 function vacationLabBreadcrumbs()
 {
     /* === OPTIONS === */
-    $text['home']     = 'Home'; // text for the 'Home' link
+    $text['home']     = 'All Templates'; // text for the 'Home' link
     $text['category'] = '%s'; // text for a category page
     $text['search']   = 'Search Results for "%s" Query'; // text for a search results page
     $text['tag']      = 'Posts Tagged "%s"'; // text for a tag page
@@ -24,11 +24,11 @@ function vacationLabBreadcrumbs()
     $show_current   = 1; // 1 - show current page title, 0 - don't show
     $before         = '<span class="current">'; // tag before the current crumb
     $after          = '</span>'; // tag after the current crumb
-    $travel_theme   = '<a href="'.home_url('travel-website-theme').'" itemprop="item"><span itemprop="name">All Templates</span></a>';
+    // $travel_theme   = '<a href="'.home_url('travel-website-theme').'" itemprop="item"><span itemprop="name">All Templates</span></a>';
     /* === END OF OPTIONS === */
 
     global $post;
-    $home_url       = home_url('');
+    $home_url       = home_url('/travel-website-templates');
     $link_before    = '<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">';
     $link_after     = '</span>';
     $link_attr      = ' itemprop="item"';
@@ -80,8 +80,8 @@ function vacationLabBreadcrumbs()
 
          else if (is_tax()) {
            $cat = get_queried_object();
-            echo $sep;
-            echo $travel_theme;
+            // echo $sep;
+            // echo $travel_theme;
 
             if ($cat->parent != 0) {
                 $cats = get_category_parents($cat->parent, true, $sep);
@@ -212,7 +212,7 @@ function vacationLabBreadcrumbs()
 
         } elseif (is_page() && !$parent_id) {
             if ($show_current) {
-                echo $sep . $before . get_the_title() . $after;
+               // echo $sep . $before . get_the_title() . $after;
             }
 
         } elseif (is_page() && $parent_id) {

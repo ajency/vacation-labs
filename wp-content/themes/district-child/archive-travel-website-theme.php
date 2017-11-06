@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Template Name:Theme Listing
+ */
  echo get_template_part('travel-website-header');
 $posts_per_page=6;
 //sorting  code start
