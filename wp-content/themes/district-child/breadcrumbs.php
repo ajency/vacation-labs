@@ -16,7 +16,7 @@ function vacationLabBreadcrumbs()
 
     $wrap_before    = '<div class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">'; // the opening wrapper tag
     $wrap_after     = '</div><!-- .breadcrumbs -->'; // the closing wrapper tag
-    $sep            = '›'; // separator between crumbs
+    $sep            = '/'; // separator between crumbs
     $sep_before     = '<span class="sep">'; // tag before separator
     $sep_after      = '</span>'; // tag after separator
     $show_home_link = 1; // 1 - show the 'Home' link, 0 - don't show
@@ -24,7 +24,7 @@ function vacationLabBreadcrumbs()
     $show_current   = 1; // 1 - show current page title, 0 - don't show
     $before         = '<span class="current">'; // tag before the current crumb
     $after          = '</span>'; // tag after the current crumb
-    $travel_theme   = '<a href="'.home_url('travel-website-theme').'" itemprop="item"><span itemprop="name">Travel website themes</span></a>';
+    $travel_theme   = '<a href="'.home_url('travel-website-theme').'" itemprop="item"><span itemprop="name">All Templates</span></a>';
     /* === END OF OPTIONS === */
 
     global $post;
@@ -46,7 +46,7 @@ function vacationLabBreadcrumbs()
             echo $wrap_before . $home_link . $wrap_after;
         }
 
-    } 
+    }
        else {
 
         echo $wrap_before;
@@ -76,13 +76,13 @@ function vacationLabBreadcrumbs()
 
             }
 
-        } 
+        }
 
          else if (is_tax()) {
            $cat = get_queried_object();
             echo $sep;
             echo $travel_theme;
-                  
+
             if ($cat->parent != 0) {
                 $cats = get_category_parents($cat->parent, true, $sep);
                 $cats = preg_replace("#^(.+)$sep$#", "$1", $cats);

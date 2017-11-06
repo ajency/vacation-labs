@@ -940,6 +940,13 @@
   margin: 0;
   padding: 0 0 0 10%;
 }
+.bootstrap-content ol.breadcrumb a {
+  color: #337ab7;
+}
+.bootstrap-content ol.breadcrumb .sep {
+  color: #ccc;
+  padding: 0 5px;
+}
 @media only screen and (max-width: 768px) {
   .bootstrap-content ol.breadcrumb {
     padding-left: 4%;
@@ -1225,6 +1232,7 @@
   background: -ms-linear-gradient(left, #006cc5, #00cab2);
   background: -o-linear-gradient(left, #006cc5, #00cab2);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.5);
+  position: relative;
 }
 .bootstrap-content.preview-header .go-back {
   margin-top: 15px;
@@ -1234,6 +1242,9 @@
 }
 .bootstrap-content.preview-header .preview-title {
   margin-top: 10px;
+}
+.bootstrap-content.preview-header .preview-title.text-center {
+  text-align: center;
 }
 .bootstrap-content.preview-header h1 {
   margin: 0;

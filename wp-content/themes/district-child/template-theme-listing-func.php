@@ -13,7 +13,7 @@ function templateThemeListing($query,$args=array()){
     <div class="section center dark nocontent nopadding section-themes" style="background-color: #526670;">
         <div class="container">
             <div class="fourteen columns offset-by-one content">
-                <h2><?php echo $header_title; ?></h2>
+                <h1 style="font-size: 2.2em;font-weight: bold;margin-top: -23px;margin-bottom:0;font-family: 'Ubuntu';font-style: normal;"><?php echo $header_title; ?></h1>
                 <p class="p1" style="font-size: 1.2em;font-weight: 300;font-family: 'Lato'">
                     <span style="color: #ffffff"> <?php echo $header_desc; ?>
                 <div class="clear"></div>
