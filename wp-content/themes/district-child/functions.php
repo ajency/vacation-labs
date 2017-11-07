@@ -12,7 +12,7 @@ function theme_enqueue_styles() {
         get_stylesheet_directory_uri() . '/style.css',
         array( $parent_style )
     );
-    wp_enqueue_style( 'theme-page', get_stylesheet_directory_uri() . '/hackathon/css/themes-page.css',false,'1.1','all');
+    wp_enqueue_style( 'theme-page', get_stylesheet_directory_uri() . '/styles/themes-page.css',false,'1.1','all');
 }
 
 function district_child_footer_social_linkoffs() {
@@ -209,7 +209,7 @@ function vacationlab_pre_get_posts( $query )
       return false;
       // echo "<pre>";
       // print_r($query);
-      
+
    if ( $query->is_tax() || $query->is_category()) {
         $query->set( 'post_type', 'travel-website-theme' );
         $query->set( 'posts_per_page', 1 );
@@ -329,13 +329,13 @@ function save_taxonomy_custom_meta( $term_id ) {
     }
     update_option( "taxonomy_$t_id", $term_meta );
   }
-}  
-add_action( 'edited_travel-website-templates', 'save_taxonomy_custom_meta', 10, 2 );  
+}
+add_action( 'edited_travel-website-templates', 'save_taxonomy_custom_meta', 10, 2 );
 add_action( 'create_travel-website-templates', 'save_taxonomy_custom_meta', 10, 2 );
 
 //edit custom taxomony field method
 function ajency_taxonomy_edit_meta_field($term) {
- 
+
   $t_id = $term->term_id;
   $term_meta = get_option( "taxonomy_$t_id" ); ?>
   <tr class="form-field">
