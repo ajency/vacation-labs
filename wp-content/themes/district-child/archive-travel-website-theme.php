@@ -2,7 +2,9 @@
 /**
  * Template Name:Theme Listing
  */
- echo get_template_part('travel-website-header');
+
+get_header();
+
 $posts_per_page=6;
 //sorting  code start
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
