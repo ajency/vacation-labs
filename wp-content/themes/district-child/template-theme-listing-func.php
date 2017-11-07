@@ -126,7 +126,7 @@ function templateThemeListing($query,$args=array()){
                     // $featured_img= wp_get_attachment_url(get_post_thumbnail_id($post_id, '_thumbnail'));
                     $featured_img= wp_get_attachment_image_src(get_post_thumbnail_id($post_id, '_thumbnail'),'large')[0];
 
-                    $post_categories=get_the_terms($post_id,'travel-website-themes');
+                    $post_categories=get_the_terms($post_id,'travel-website-templates');
                     $post_link= get_post_permalink( $post_id, false, false );
                   ?>
                     <div class="col-md-6 col-xs-12 col-sm-12 theme-card">

@@ -10,6 +10,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 //sorting  code start
 $posts_per_page=6;
+$custom_tax='travel-website-templates';
 
 if ($_REQUEST['order_by'] == 'title') {
     $args = array(
@@ -20,7 +21,7 @@ if ($_REQUEST['order_by'] == 'title') {
         'order'          => 'ASC',
         'tax_query' => array(
           array(
-            'taxonomy' => 'travel-website-themes',
+            'taxonomy' => $custom_tax,
             'field'    => 'slug',
             'terms'    => $term->slug
           ),
@@ -33,7 +34,7 @@ if ($_REQUEST['order_by'] == 'title') {
         'paged'          => $paged,
         'tax_query' => array(
           array(
-            'taxonomy' => 'travel-website-themes',
+            'taxonomy' => $custom_tax,
             'field'    => 'slug',
             'terms'    => $term->slug
           ),
@@ -49,7 +50,7 @@ if ($_REQUEST['order_by'] == 'title') {
          'paged'          => $paged,
         'tax_query' => array(
           array(
-            'taxonomy' => 'travel-website-themes',
+            'taxonomy' => $custom_tax,
             'field'    => 'slug',
             'terms'    => $term->slug
           ),

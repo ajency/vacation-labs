@@ -140,7 +140,7 @@ function website_themes() {
     'description'           => __( 'travel website themes', 'text_domain' ),
     'labels'                => $labels,
     'supports'              => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail','custom-fields', 'post-formats', ),
-    'taxonomies'            => array( 'travel-website-themes' ),
+    'taxonomies'            => array( 'travel-website-templates' ),
     'hierarchical'          => false,
     'public'                => true,
     'show_ui'               => true,
@@ -164,7 +164,7 @@ add_action( 'init', 'website_themes', 0 );
 add_action( 'init', 'build_taxonomies', 0 );
 function build_taxonomies() {
     register_taxonomy(
-    'travel-website-themes',
+    'travel-website-templates',
     'travel-website-theme',  // this is the custom post type(s) I want to use this taxonomy for
     array(
         'hierarchical' => true,
@@ -180,7 +180,7 @@ function build_taxonomies() {
  */
 function hierarchical_category_tree( $cat ) {
 
-  $next = get_categories('hide_empty=false&taxonomy=travel-website-themes&orderby=name&order=ASC&parent=' . $cat);
+  $next = get_categories('hide_empty=false&taxonomy=travel-website-templates&orderby=name&order=ASC&parent=' . $cat);
   $term = get_queried_object();
 
   if( $next ) :
@@ -296,7 +296,7 @@ add_action('save_post', 'save_website_theme_build_meta_box');
  */
 add_filter( 'wp_terms_checklist_args', 'checked_not_ontop', 1, 2 );
 function checked_not_ontop( $args, $post_id ) {
-    if ( 'travel-website-theme' == get_post_type( $post_id ) && $args['taxonomy'] == 'travel-website-themes' )
+    if ( 'travel-website-theme' == get_post_type( $post_id ) && $args['taxonomy'] == 'travel-website-templates' )
         $args['checked_ontop'] = false;
 
     return $args;
@@ -304,7 +304,7 @@ function checked_not_ontop( $args, $post_id ) {
 
 
 //add custom taxomony field method
-add_action( 'travel-website-themes_add_form_fields', 'ajency_taxonomy_add_new_meta_field', 10, 2 );
+add_action( 'travel-website-templates_add_form_fields', 'ajency_taxonomy_add_new_meta_field', 10, 2 );
 function ajency_taxonomy_add_new_meta_field() {
   ?>
   <div class="form-field">
@@ -330,8 +330,8 @@ function save_taxonomy_custom_meta( $term_id ) {
     update_option( "taxonomy_$t_id", $term_meta );
   }
 }  
-add_action( 'edited_travel-website-themes', 'save_taxonomy_custom_meta', 10, 2 );  
-add_action( 'create_travel-website-themes', 'save_taxonomy_custom_meta', 10, 2 );
+add_action( 'edited_travel-website-templates', 'save_taxonomy_custom_meta', 10, 2 );  
+add_action( 'create_travel-website-templates', 'save_taxonomy_custom_meta', 10, 2 );
 
 //edit custom taxomony field method
 function ajency_taxonomy_edit_meta_field($term) {
@@ -347,7 +347,7 @@ function ajency_taxonomy_edit_meta_field($term) {
   </tr>
 <?php
 }
-add_action( 'travel-website-themes_edit_form_fields', 'ajency_taxonomy_edit_meta_field', 10, 2 );
+add_action( 'travel-website-templates_edit_form_fields', 'ajency_taxonomy_edit_meta_field', 10, 2 );
 
 /* add_filter( 'posts_request', 'dump_request' );
 
