@@ -33,7 +33,7 @@ $ag_page = ag_get_page_variables($pageID); ?>
 
 <!-- Page Content Area -->
 <div class="pagecontent no-caption" <?php echo ($ag_page['page_content_color']) ? 'style="background:' . $ag_page['page_content_color'] . ';"' : '' ?>>
-	<?php echo get_template_part('functions/templates/indexsidebar-blog'); ?>
+	<?php echo get_template_part('functions/templates/indexsidebar'); ?>
 </div>
 <!-- END Page Content Area -->
 
