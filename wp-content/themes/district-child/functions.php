@@ -1,4 +1,4 @@
-<?
+<?php
 function vl_util_css($val, $property) {
   return ($val ? ($property . ': ' . $val . ';') : '');
 }
