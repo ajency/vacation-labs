@@ -349,6 +349,11 @@ function ajency_taxonomy_edit_meta_field($term) {
 }
 add_action( 'travel-website-templates_edit_form_fields', 'ajency_taxonomy_edit_meta_field', 10, 2 );
 
+function mg_travel_template_pagination_rewrite() {
+  add_rewrite_rule('travel-website-templates/page/?([0-9]{1,})/?$', 'index.php?pagename=travel-website-templates&paged=$matches[1]', 'top');
+}
+add_action('init', 'mg_travel_template_pagination_rewrite');
+
 /* add_filter( 'posts_request', 'dump_request' );
 
 function dump_request( $input ) {
