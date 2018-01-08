@@ -180,7 +180,7 @@ function build_taxonomies() {
  */
 function hierarchical_category_tree( $cat ) {
 
-  $next = get_categories('hide_empty=false&taxonomy=travel-website-templates&orderby=name&order=ASC&parent=' . $cat);
+  $next = get_terms('hide_empty=false&taxonomy=travel-website-templates&orderby=name&order=ASC&parent=' . $cat);
   $term = get_queried_object();
 
   if( $next ) :
@@ -190,7 +190,7 @@ function hierarchical_category_tree( $cat ) {
     else
       echo '<ul><li class="">';
 
-    echo '<a href="' . get_category_link( $cat->term_id ) . '" title='.$cat->name.'>'.$cat->name.' </a>  ';
+    echo '<a href="' . get_term_link( $cat->term_id ) . '" title='.$cat->name.'>'.$cat->name.' </a>  ';
     hierarchical_category_tree( $cat->term_id );
     endforeach;
   endif;
