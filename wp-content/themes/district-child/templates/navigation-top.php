@@ -19,9 +19,8 @@
 	</button>
 
 	<?php wp_nav_menu( array(
-		'theme_location' => 'main_nav_menu',
-		'menu' => 'Main Navigation Menu',
-		'items_wrap' => '<ul id="mobilenav'
+		'theme_location' => 'top',
+		'menu_id'        => 'top-menu',
 	) ); ?>
 
 	<?php if ( ( twentyseventeen_is_frontpage() || ( is_home() && is_front_page() ) ) && has_custom_header() ) : ?>

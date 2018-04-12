@@ -362,6 +362,15 @@ function dump_request( $input ) {
 
     return $input;
 }*/
+function is_blog () {
 
+
+  if(is_category() || 
+    (( is_archive() || is_author() || is_single() || is_tag()) && 'post' == get_post_type())
+    )
+    return true;
+  else 
+    return false;
+}
 include 'template-theme-listing-func.php';
 include 'breadcrumbs.php';
