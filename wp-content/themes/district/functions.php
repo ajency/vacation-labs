@@ -468,6 +468,7 @@ endif;
  */
 require_once( dirname( __FILE__ ) . '/functions/custom-styles.php' );
 
+
 /**
  * Stylesheets
  */
@@ -1647,4 +1648,5 @@ if ( ! function_exists('ag_get_portfolio_variables') ) :
 		
 	}
 endif;
+remove_filter( 'the_excerpt', 'wpautop' );
 

@@ -7,7 +7,7 @@ $pageID = get_option('page_for_posts');
 $ag_page = ag_get_page_variables($pageID); ?>
 
 <?php if (wp_title("",false)) : // If there's a page title ?>
-
+ 
 <!-- Page Title -->
 <div class="pagetitle" <?php echo ($ag_page['background_style']) ? $ag_page['background_style'] : '';?>>
     <div class="container verticalcenter">

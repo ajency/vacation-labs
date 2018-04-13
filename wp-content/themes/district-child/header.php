@@ -47,17 +47,19 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="<?php echo get_stylesheet_directory_uri();?>/styles/blog_home.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-  </script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
-  </script>
+  </head>
+<!-- Menu Navigation -->
     <nav class="navbar navbar-inverse">
     <div class="container">
       <div class="navbar-header">
         <button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> 
-        <a class="navbar-brand vl-logo"  <a href="<?php bloginfo('url'); ?>">
-        <img src="<?php echo get_stylesheet_directory_uri();?>/images/vl-logo.png">
-        </a>
+    
+                <a  class="navbar-brand vl-logo" href="<?php bloginfo('url'); ?>">
+                    <?php if ( $logo = of_get_option('of_logo') ) { ?>
+                    <img src="<?php echo $logo; ?>" alt="<?php bloginfo( 'name' ); ?>" />
+                    <?php } else { bloginfo( 'name' );} ?>
+                    </a> 
+           
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
       <?php if ( has_nav_menu( 'main_nav_menu' ) ) { /* if menu location 'Main Navigation Menu' exists then use custom menu */ ?>
@@ -70,7 +72,10 @@
       </div>
     </div>
   </nav>
-</head>
+<!-- End Menu Navigation -->
+
+
+
 <?php } else { ?>
 
 <?php ag_load_fonts(); // Load Google Fonts defined in functions.php ?>
