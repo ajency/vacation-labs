@@ -12,7 +12,20 @@ $ag_page = ag_get_page_variables($pageID); ?>
    <?php echo get_template_part('templates/blog_featured_post_slider'); ?>
   <?php echo get_template_part('functions/templates/indexblog'); ?>
 
-
+</div>
+ <div class="border-listing"></div>
+  <div class="text-center border-design">
+    •
+  </div>
+   <div class="container">
+    <div class="text-center">
+      <div class="pagination">
+        <div class="btn-group-lg" role="group">
+          <a href="#"> <button class="btn btn-default" type="button">View all</button> </a>
+        </div>
+      </div>
+    </div>
+  </div>
   <?php }else{?>
 
 <?php if (wp_title("",false)) : // If there's a page title ?>

@@ -26,8 +26,8 @@
 		$ag_post['author'] = of_get_option('of_author_style');
 		
 		$ag_post['thumbsize'] = (of_get_option('of_post_crop')) ? of_get_option('of_post_crop') : 'post';
-		
-		?>
+
+ 		?>
 
 		 <div class="related-article-card">
            <div class="cards-spacer">  <!-- WP Post Class -->
@@ -35,30 +35,45 @@
 			<div class="related-article-image" style="background-image:url('<?php the_post_thumbnail_url('medium'); ?>') !important">
 		
             </div>
-            <p class="colorfade-details-blue colorfade-margin">BOOKING ENGINE <span class="colorfade-details">•</span><span class="colorfade-details-green"> PAYMENTS</span></p>
-             <p class="related-article-cards-text proxima-font"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></p>
+        <p class="colorfade-details-blue colorfade-margin"> 
+
+            <?php 
+
+$categories = get_the_category();
+$count_cat=0;
+foreach ($categories as $catVal) {
+$category_id = $catVal->cat_ID;
+// Get the URL of this category
+    $category_link = get_category_link( $category_id );
+    if($count_cat>0){
+        echo "<span class='colorfade-details'>•</span>";
+    }
+    ?>
+
+ <span class='<?php echo get_term_meta($category_id, "wpcf-css-property", true); ?> '>
+  <a href="<?php echo esc_url( $category_link ); ?>" title="<?php echo $catVal->name ?>" class='<?php echo get_term_meta($category_id, "wpcf-css-property", true); ?> '><?php echo $catVal->name ?></a>
+  </span>
+<?php 
+$count_cat++;
+}
+?>
+       </p>     
+
+        
+             <p class="related-article-cards-text proxima-font"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php echo mb_strimwidth(get_the_title(), 0, 60, '...'); ?></a></p>
       </div>
       </div>
               <?php if ($count  == 2) : ?> <!-- box five and break div -->
-             <div class="related-article-card blue-colorfade">
-      <div class="cards-spacer">
-        <p class="advertisement-card-text">Looking for a Travel Booking Engine?</p>
-        <div class="dash-line"></div>
-        <p class="blue-colorfade-card-price">Only ₹200<span>/month</span></p>
-        <div class="blue-colorfade-image"></div><button class="btn btn-default blue-colorfade-getstarted-button" type="button">GET STARTED</button>
-      </div>
-    </div>
+              <?php if ( is_active_sidebar( 'sidebar1' ) ) : ?>
+    <?php dynamic_sidebar( 'sidebar1' ); ?>
+<?php endif; ?>
+          
       
         <?php endif; ?>
 		 <?php if ($count  == 3) : ?> <!-- box five and break div -->
-           <div class="related-article-card twitter-card">
-      <div class="cards-spacer">
-        <p class="twitter-main-text">Like what you see?</p>
-        <p class="twitter-sub-text">follow us on <span>Twitter</span> and get regular updates</p><button class="btn btn-default btn-block follow-btn" type="button"><span><i aria-hidden="true" class="fa fa-twitter"></i> FOLLOW</span></button>
-        <p class="copyright-text">@vacationlabs</p>
-      </div>
-    </div>
-      
+           <?php if ( is_active_sidebar( 'sidebar2' ) ) : ?>
+    <?php dynamic_sidebar( 'sidebar2' ); ?>
+      <?php endif; ?>
         <?php endif; ?>
             
 
@@ -69,22 +84,7 @@
         
         <!-- Pagination
         ================================================== -->        
-        <div class="pagination">
-            <?php
-                global $wp_query;
-        
-                $big = 999999999; // need an unlikely integer
-        
-                echo paginate_links( array(
-                    'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-                    'format' => '?paged=%#%',
-                    'current' => max( 1, get_query_var('paged') ),
-                    'total' => $wp_query->max_num_pages,
-                    'add_args' => false
-                ) );
-            ?>   
-            <div class="clear"></div>
-        </div> 
+       
         <!-- End pagination --> 
 
 	</div><!-- END Ten Column Section -->

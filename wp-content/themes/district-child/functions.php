@@ -375,20 +375,30 @@ function is_blog () {
 include 'template-theme-listing-func.php';
 include 'breadcrumbs.php';
 
-// Register sidebar for repeated widgets
-function register_custom_sidebar() {
+/**** Add Our Custom Sidebar ****/
+$args = array(
+  'name'          => __( 'Sidebar 1', 'vacation lab' ),
+  'id'            => 'sidebar1',
+  'description'   => 'grid top sidebar',
+        'class'         => '',
+  'before_widget' => '<div class="related-article-card">',
+  'after_widget'  => '</div>',
+  'before_title'  => '<h2 class="widgettitle">',
+  'after_title'   => '</h2>' );
 
-    register_sidebar(array(
-        'name' => "CTAs — Home",
-        'id' => 'widgets_home',
-        'description' => "Widgets will be displayed after every 3rd post",
-        'before_widget' => '<li id="%1$s" class="widget %2$s">',
-        'after_widget' => '</li>',
-        'before_title' => '<h2 class="widgettitle">',
-        'after_title' => '</h2>',
-    ));
-}
-add_action('widgets_init', 'register_custom_sidebar');
+register_sidebar( $args );
+
+$args = array(
+  'name'          => __( 'Sidebar 2', 'vacation lab' ),
+  'id'            => 'sidebar2',
+  'description'   => 'middle sidebar',
+        'class'         => '',
+  'before_widget' => '<div class="related-article-card ">',
+  'after_widget'  => '</div>',
+  'before_title'  => '<h2 class="widgettitle">',
+  'after_title'   => '</h2>' );
+
+register_sidebar( $args );
 
 // Return dom node from other document as html string
 function return_dom_node_as_html($element) {
@@ -398,3 +408,4 @@ function return_dom_node_as_html($element) {
 
     return $newdoc->saveHTML();
 }
+

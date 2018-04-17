@@ -11,12 +11,12 @@ while ( $slider->have_posts() ) :
 
   <div class="item <?php if ($i == 1) echo 'active'; ?>">
         <div class="container homescreen-banner">
-          <div class="col-md-6 homescreen-banner-background-image" style="background-image:url('<?php the_post_thumbnail_url('medium'); ?>') !important"></div>
+          <div class="col-md-6 homescreen-banner-background-image" style="background-image:url('<?php the_post_thumbnail_url('large'); ?>') !important"></div>
           <div class="col-md-6 homescreen-banner-text">
             <p class="homescreen-blog-details"><?php $cat = get_the_category(); echo $cat[0]->cat_name; ?>
 
 </p>
-            <p class="homescreen-blog-heading"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
+            <p class="homescreen-blog-heading"><a href="<?php the_permalink(); ?>"><?php echo mb_strimwidth(get_the_title(), 0, 60, '...'); ?></a></p>
             <p class="homescreen-blog-description"> <?php the_excerpt(); ?></p>
           </div>
         </div>
